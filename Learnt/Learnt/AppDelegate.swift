@@ -12,10 +12,30 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var tabController: UITabBarController?
+    var newsfeedViewController: NewsfeedViewController?
+    var searchViewController: SearchViewController?
+    var profileViewController: ProfileViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        tabController = UITabBarController()
+    
+        newsfeedViewController = NewsfeedViewController()
+        searchViewController = SearchViewController()
+        profileViewController = ProfileViewController()
+        
+        tabController?.viewControllers = [newsfeedViewController!, searchViewController!, profileViewController!]
+        
+        newsfeedViewController?.tabBarItem = UITabBarItem(title: "Newsfeed", image: nil, tag: 0)
+        searchViewController?.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 1)
+        profileViewController?.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 2)
+
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = self.tabController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
