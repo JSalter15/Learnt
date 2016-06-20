@@ -12,7 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
     var tabController: UITabBarController?
+    
+    var newsfeedNavController: UINavigationController?
+    var searchNavController: UINavigationController?
+    var profileNavController: UINavigationController?
+
     var newsfeedViewController: NewsfeedViewController?
     var searchViewController: SearchViewController?
     var profileViewController: ProfileViewController?
@@ -21,16 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         tabController = UITabBarController()
-    
+
         newsfeedViewController = NewsfeedViewController()
+        newsfeedNavController = UINavigationController(rootViewController: newsfeedViewController!)
+        newsfeedNavController?.navigationBarHidden = false
+        
         searchViewController = SearchViewController()
+        searchNavController = UINavigationController(rootViewController: searchViewController!)
+
         profileViewController = ProfileViewController()
+        profileNavController = UINavigationController(rootViewController: profileViewController!)
+
+        tabController?.viewControllers = [newsfeedNavController!, searchNavController!, profileNavController!]
         
-        tabController?.viewControllers = [newsfeedViewController!, searchViewController!, profileViewController!]
-        
-        newsfeedViewController?.tabBarItem = UITabBarItem(title: "Newsfeed", image: nil, tag: 0)
-        searchViewController?.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 1)
-        profileViewController?.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 2)
+        newsfeedViewController?.tabBarItem = UITabBarItem(title: "Newsfeed", image: UIImage(named: "home"), tag: 0)
+        searchViewController?.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
+        profileViewController?.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), tag: 2)
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.rootViewController = self.tabController

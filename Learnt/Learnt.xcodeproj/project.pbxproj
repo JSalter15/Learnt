@@ -23,6 +23,19 @@
 		328320711D181B28008A66BC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3283206F1D181B28008A66BC /* ProfileViewController.swift */; };
 		328320721D181B28008A66BC /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328320701D181B28008A66BC /* ProfileViewController.xib */; };
 		328320741D181D4F008A66BC /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 328320731D181D4F008A66BC /* defaultImage.png */; };
+		3283207D1D18275C008A66BC /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3283207C1D18275C008A66BC /* UserController.swift */; };
+		328320801D18508B008A66BC /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3283207E1D18508B008A66BC /* NewPostViewController.swift */; };
+		328320811D18508B008A66BC /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3283207F1D18508B008A66BC /* NewPostViewController.xib */; };
+		3283208D1D1854FF008A66BC /* UBUNTU FONT LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 328320831D1854FF008A66BC /* UBUNTU FONT LICENCE.txt */; };
+		3283208E1D1854FF008A66BC /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328320841D1854FF008A66BC /* Ubuntu-B.ttf */; };
+		3283208F1D1854FF008A66BC /* Ubuntu-BI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328320851D1854FF008A66BC /* Ubuntu-BI.ttf */; };
+		328320901D1854FF008A66BC /* Ubuntu-C.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328320861D1854FF008A66BC /* Ubuntu-C.ttf */; };
+		328320911D1854FF008A66BC /* Ubuntu-L.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328320871D1854FF008A66BC /* Ubuntu-L.ttf */; };
+		328320921D1854FF008A66BC /* Ubuntu-LI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328320881D1854FF008A66BC /* Ubuntu-LI.ttf */; };
+		328320931D1854FF008A66BC /* Ubuntu-M.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328320891D1854FF008A66BC /* Ubuntu-M.ttf */; };
+		328320941D1854FF008A66BC /* Ubuntu-MI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3283208A1D1854FF008A66BC /* Ubuntu-MI.ttf */; };
+		328320951D1854FF008A66BC /* Ubuntu-R.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3283208B1D1854FF008A66BC /* Ubuntu-R.ttf */; };
+		328320961D1854FF008A66BC /* Ubuntu-RI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3283208C1D1854FF008A66BC /* Ubuntu-RI.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +57,19 @@
 		3283206F1D181B28008A66BC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		328320701D181B28008A66BC /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		328320731D181D4F008A66BC /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
+		3283207C1D18275C008A66BC /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		3283207E1D18508B008A66BC /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		3283207F1D18508B008A66BC /* NewPostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
+		328320831D1854FF008A66BC /* UBUNTU FONT LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UBUNTU FONT LICENCE.txt"; sourceTree = "<group>"; };
+		328320841D1854FF008A66BC /* Ubuntu-B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-B.ttf"; sourceTree = "<group>"; };
+		328320851D1854FF008A66BC /* Ubuntu-BI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BI.ttf"; sourceTree = "<group>"; };
+		328320861D1854FF008A66BC /* Ubuntu-C.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-C.ttf"; sourceTree = "<group>"; };
+		328320871D1854FF008A66BC /* Ubuntu-L.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-L.ttf"; sourceTree = "<group>"; };
+		328320881D1854FF008A66BC /* Ubuntu-LI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-LI.ttf"; sourceTree = "<group>"; };
+		328320891D1854FF008A66BC /* Ubuntu-M.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-M.ttf"; sourceTree = "<group>"; };
+		3283208A1D1854FF008A66BC /* Ubuntu-MI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MI.ttf"; sourceTree = "<group>"; };
+		3283208B1D1854FF008A66BC /* Ubuntu-R.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-R.ttf"; sourceTree = "<group>"; };
+		3283208C1D1854FF008A66BC /* Ubuntu-RI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-RI.ttf"; sourceTree = "<group>"; };
 		D642C28E9B09F34857C89F74 /* Pods_Learnt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learnt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E581C16BE0E456D5025409 /* Pods-Learnt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learnt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Learnt/Pods-Learnt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,9 +107,10 @@
 		3283202A1D18059E008A66BC /* Learnt */ = {
 			isa = PBXGroup;
 			children = (
+				328320821D1854E8008A66BC /* Fonts */,
+				3283202B1D18059E008A66BC /* AppDelegate.swift */,
 				3283203D1D180FBF008A66BC /* Models */,
 				328320641D181AD2008A66BC /* TabViews */,
-				3283202B1D18059E008A66BC /* AppDelegate.swift */,
 				328320731D181D4F008A66BC /* defaultImage.png */,
 				3283202D1D18059E008A66BC /* ViewController.swift */,
 				328320321D18059E008A66BC /* Assets.xcassets */,
@@ -100,6 +127,7 @@
 				3283205E1D1810E9008A66BC /* Post.swift */,
 				328320601D1810F6008A66BC /* EmailValidatedTextField.swift */,
 				328320621D181106008A66BC /* PersistenceManager.swift */,
+				3283207C1D18275C008A66BC /* UserController.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -113,8 +141,27 @@
 				3283206C1D181B19008A66BC /* SearchViewController.xib */,
 				3283206F1D181B28008A66BC /* ProfileViewController.swift */,
 				328320701D181B28008A66BC /* ProfileViewController.xib */,
+				3283207E1D18508B008A66BC /* NewPostViewController.swift */,
+				3283207F1D18508B008A66BC /* NewPostViewController.xib */,
 			);
 			name = TabViews;
+			sourceTree = "<group>";
+		};
+		328320821D1854E8008A66BC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				328320831D1854FF008A66BC /* UBUNTU FONT LICENCE.txt */,
+				328320841D1854FF008A66BC /* Ubuntu-B.ttf */,
+				328320851D1854FF008A66BC /* Ubuntu-BI.ttf */,
+				328320861D1854FF008A66BC /* Ubuntu-C.ttf */,
+				328320871D1854FF008A66BC /* Ubuntu-L.ttf */,
+				328320881D1854FF008A66BC /* Ubuntu-LI.ttf */,
+				328320891D1854FF008A66BC /* Ubuntu-M.ttf */,
+				3283208A1D1854FF008A66BC /* Ubuntu-MI.ttf */,
+				3283208B1D1854FF008A66BC /* Ubuntu-R.ttf */,
+				3283208C1D1854FF008A66BC /* Ubuntu-RI.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		C7047F20ED4EC4F7B6FA7A2D /* Pods */ = {
@@ -195,10 +242,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				328320911D1854FF008A66BC /* Ubuntu-L.ttf in Resources */,
+				328320931D1854FF008A66BC /* Ubuntu-M.ttf in Resources */,
+				328320811D18508B008A66BC /* NewPostViewController.xib in Resources */,
 				328320681D181AF8008A66BC /* NewsfeedViewController.xib in Resources */,
+				3283208D1D1854FF008A66BC /* UBUNTU FONT LICENCE.txt in Resources */,
 				328320741D181D4F008A66BC /* defaultImage.png in Resources */,
+				328320961D1854FF008A66BC /* Ubuntu-RI.ttf in Resources */,
+				328320941D1854FF008A66BC /* Ubuntu-MI.ttf in Resources */,
 				328320361D18059E008A66BC /* LaunchScreen.storyboard in Resources */,
+				328320901D1854FF008A66BC /* Ubuntu-C.ttf in Resources */,
 				3283206E1D181B19008A66BC /* SearchViewController.xib in Resources */,
+				328320951D1854FF008A66BC /* Ubuntu-R.ttf in Resources */,
+				3283208F1D1854FF008A66BC /* Ubuntu-BI.ttf in Resources */,
+				3283208E1D1854FF008A66BC /* Ubuntu-B.ttf in Resources */,
+				328320921D1854FF008A66BC /* Ubuntu-LI.ttf in Resources */,
 				328320721D181B28008A66BC /* ProfileViewController.xib in Resources */,
 				328320331D18059E008A66BC /* Assets.xcassets in Resources */,
 			);
@@ -259,8 +317,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				328320801D18508B008A66BC /* NewPostViewController.swift in Sources */,
 				3283202E1D18059E008A66BC /* ViewController.swift in Sources */,
 				328320671D181AF8008A66BC /* NewsfeedViewController.swift in Sources */,
+				3283207D1D18275C008A66BC /* UserController.swift in Sources */,
 				3283206D1D181B19008A66BC /* SearchViewController.swift in Sources */,
 				3283202C1D18059E008A66BC /* AppDelegate.swift in Sources */,
 				3283203F1D180FD0008A66BC /* User.swift in Sources */,

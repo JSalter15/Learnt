@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Ubuntu-R.ttf">
+            <string>Ubuntu</string>
+            <string>Ubuntu</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewPostViewController" customModule="Learnt" customModuleProvider="target">
+            <connections>
+                <outlet property="textView" destination="UW0-gg-hHk" id="GnS-m9-0Zv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4v4-Ac-MtI">
+                    <rect key="frame" x="556" y="24" width="29" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="5t2-Cu-K1a"/>
+                        <constraint firstAttribute="width" constant="29" id="RKl-eB-EbH"/>
+                    </constraints>
+                    <state key="normal" image="close"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="AXW-To-Up7"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop some knowledge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvb-sD-T51">
+                    <rect key="frame" x="12" y="28" width="174" height="20"/>
+                    <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Today I learned..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UW0-gg-hHk" userLabel="asdf">
+                    <rect key="frame" x="8" y="52" width="584" height="534"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpH-dW-LmY">
+                    <rect key="frame" x="84" y="285" width="31" height="30"/>
+                    <state key="normal" title="Post"/>
+                    <connections>
+                        <action selector="postButtonTapped:" destination="-1" eventType="touchUpInside" id="8Z6-bt-Wdu"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="UW0-gg-hHk" firstAttribute="top" secondItem="cvb-sD-T51" secondAttribute="bottom" constant="4.5" id="7gv-Gj-WaD"/>
+                <constraint firstItem="cvb-sD-T51" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="9Fm-ta-ey5"/>
+                <constraint firstAttribute="bottom" secondItem="UW0-gg-hHk" secondAttribute="bottom" constant="14" id="Nb5-J5-eft"/>
+                <constraint firstAttribute="trailing" secondItem="UW0-gg-hHk" secondAttribute="trailing" constant="8" id="b6s-yw-ZXg"/>
+                <constraint firstItem="UW0-gg-hHk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="gH5-qv-tys"/>
+                <constraint firstItem="cvb-sD-T51" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="uQU-Qz-80e"/>
+                <constraint firstItem="4v4-Ac-MtI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="uln-os-GYK"/>
+                <constraint firstAttribute="trailing" secondItem="4v4-Ac-MtI" secondAttribute="trailing" constant="15" id="zsD-Wh-zXR"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="close" width="29" height="29"/>
+    </resources>
+</document>
