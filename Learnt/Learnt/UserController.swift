@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
-/*class UserController {
+class UserController {
     
     class var sharedInstance: UserController {
         struct Static {
@@ -24,17 +25,19 @@ import Foundation
     
     var allUsers: [User] = []
     
-    var noUser = User(email: "", password: "", username: "", profPic: nil, followerList: [], followingList: [], favoritedList: [], repostList: [])
+    var noUser = User(email: "", password: "", username: "", profPic: nil, posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
     
-    func registerUser(email:String, password:String, username:String?, profPic: UIImage?, followerList:[User], followingList:[User], favoritedList:[Post], repostList:[Post]) -> (User?, String?) {
+    func registerUser(email:String, password:String, username:String?, profPic: UIImage?) -> (User?, String?) {
         
         getUsers()
         
-        let user = User(email: email, password: password)
         
-        if doesUserExist(user) {
+        
+        if doesUserExist(email, password:password) != nil {
             return (nil, "There is already a user registered with that email")
         }
+        
+        let user = User(email: email, password: password, username: username, profPic: profPic, posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
         
         allUsers.append(user)
         
@@ -49,13 +52,10 @@ import Foundation
         
         getUsers()
         
-        let user = User(email: email, password: password)
-        
-        if doesUserExist(user) {
+        if let user = doesUserExist(email, password:password) {
+            setLoggedInUser(user)
             return (user, nil)
         }
-        
-        setLoggedInUser(user)
         
         return (nil, "Incorrect username or password!")
     }
@@ -85,6 +85,18 @@ import Foundation
         return false
     }
     
+    func doesUserExist(email:String, password:String?) -> User? {
+        getUsers()
+        
+        for user in allUsers {
+            if ((user.email == email) && (user.password == password)) {
+                return user
+            }
+        }
+        
+        return nil
+    }
+    
     func setLoggedInUser(user:User?) {
         if user == nil {
             PersistenceManager.saveObject(noUser, fileName: "loggedInUser")
@@ -104,4 +116,4 @@ import Foundation
         
         return nil
     }
-}*/
+}

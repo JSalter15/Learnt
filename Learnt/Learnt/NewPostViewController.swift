@@ -10,12 +10,14 @@ import UIKit
 
 class NewPostViewController: UIViewController {
 
+    @IBOutlet weak var header: UILabel!
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let user = UserController.sharedInstance.getLoggedInUser()
+        header.text = "Today @\((user?.username)!) learned..."
     }
 
     @IBAction func closeButtonTapped(sender: UIButton) {
@@ -23,8 +25,13 @@ class NewPostViewController: UIViewController {
     }
     
     @IBAction func postButtonTapped(sender: UIButton) {
-        let post:Post = Post(poster: nil, body: textView.text, favoriters: [], reposters: [])
+        let poster = UserController.sharedInstance.getLoggedInUser()
         
+        let post:Post = Post(poster: poster, body: textView.text, date: NSDate(), favoriters: [], reposters: [])
+        
+        PostController.sharedInstance.newPost(post)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

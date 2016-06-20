@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingScreenViewController" customModule="Learnt" customModuleProvider="target">
+            <connections>
+                <outlet property="emailField" destination="FDE-Qc-eve" id="sCP-IB-cKC"/>
+                <outlet property="passwordField" destination="ylF-ve-qt7" id="Tld-E5-OXH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Learnt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0T-A2-6ub">
+                    <rect key="frame" x="228" y="122" width="144" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2O-lj-dVa">
+                    <rect key="frame" x="281" y="285" width="38" height="30"/>
+                    <state key="normal" title="Login"/>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="naM-hJ-BnR"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FDE-Qc-eve" customClass="EmailValidatedTextField" customModule="Learnt" customModuleProvider="target">
+                    <rect key="frame" x="21" y="197" width="558" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ylF-ve-qt7">
+                    <rect key="frame" x="21" y="235" width="558" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vf-im-EWL">
+                    <rect key="frame" x="272" y="323" width="57" height="30"/>
+                    <state key="normal" title="Register"/>
+                    <connections>
+                        <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="d6h-Dv-Y2M"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="FDE-Qc-eve" firstAttribute="trailing" secondItem="ylF-ve-qt7" secondAttribute="trailing" id="0su-bO-cOZ"/>
+                <constraint firstItem="k2O-lj-dVa" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="1mH-ec-YPo"/>
+                <constraint firstAttribute="bottom" secondItem="9vf-im-EWL" secondAttribute="bottom" constant="247" id="4Ow-1t-XHD"/>
+                <constraint firstItem="P0T-A2-6ub" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7g7-c2-p98"/>
+                <constraint firstItem="ylF-ve-qt7" firstAttribute="centerX" secondItem="k2O-lj-dVa" secondAttribute="centerX" id="Fir-df-3Rd"/>
+                <constraint firstItem="k2O-lj-dVa" firstAttribute="top" secondItem="ylF-ve-qt7" secondAttribute="bottom" constant="20" id="OE5-Z3-Tib"/>
+                <constraint firstItem="ylF-ve-qt7" firstAttribute="top" secondItem="FDE-Qc-eve" secondAttribute="bottom" constant="8" symbolic="YES" id="SJc-rL-AO5"/>
+                <constraint firstItem="P0T-A2-6ub" firstAttribute="centerX" secondItem="FDE-Qc-eve" secondAttribute="centerX" id="aPM-jM-mRr"/>
+                <constraint firstItem="FDE-Qc-eve" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="fYb-ct-KCb"/>
+                <constraint firstItem="FDE-Qc-eve" firstAttribute="top" secondItem="P0T-A2-6ub" secondAttribute="bottom" constant="54" id="jBp-nP-wBx"/>
+                <constraint firstItem="FDE-Qc-eve" firstAttribute="leading" secondItem="ylF-ve-qt7" secondAttribute="leading" id="r5k-TL-FWq"/>
+                <constraint firstItem="k2O-lj-dVa" firstAttribute="centerX" secondItem="9vf-im-EWL" secondAttribute="centerX" id="u9W-LL-DcW"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

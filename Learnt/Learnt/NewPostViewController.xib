@@ -13,6 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewPostViewController" customModule="Learnt" customModuleProvider="target">
             <connections>
+                <outlet property="header" destination="cvb-sD-T51" id="NYC-4C-TEd"/>
                 <outlet property="textView" destination="UW0-gg-hHk" id="GnS-m9-0Zv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -33,15 +34,16 @@
                         <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="AXW-To-Up7"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop some knowledge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvb-sD-T51">
-                    <rect key="frame" x="12" y="28" width="174" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today I learned..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvb-sD-T51">
+                    <rect key="frame" x="12" y="28" width="130" height="20"/>
                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Today I learned..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UW0-gg-hHk" userLabel="asdf">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="drop some knowledge here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UW0-gg-hHk" userLabel="asdf">
                     <rect key="frame" x="8" y="52" width="584" height="534"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
                 </textView>

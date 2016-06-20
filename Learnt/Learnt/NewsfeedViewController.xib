@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsfeedViewController" customModule="Learnt" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="QFu-9a-S9Y" id="IFs-9V-rJS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +15,19 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QFu-9a-S9Y">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="QFu-9a-S9Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="F3b-Dx-YPY"/>
+                <constraint firstItem="QFu-9a-S9Y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JiV-Xq-gpY"/>
+                <constraint firstAttribute="trailing" secondItem="QFu-9a-S9Y" secondAttribute="trailing" id="cr3-lH-6Tq"/>
+                <constraint firstAttribute="bottom" secondItem="QFu-9a-S9Y" secondAttribute="bottom" id="mb0-vV-zsA"/>
+            </constraints>
         </view>
     </objects>
 </document>

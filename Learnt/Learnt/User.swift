@@ -15,16 +15,18 @@ class User: NSObject, NSCoding {
     var password: String?
     var username: String?
     var profPic: UIImage?
+    var posts: [Post] = []
     var followerList: [User] = []
     var followingList: [User] = []
     var favoritedList: [Post] = []
     var repostList: [Post] = []
     
-    required init(email:String?, password:String?, username:String?, profPic: UIImage?, followerList:[User], followingList:[User], favoritedList:[Post], repostList:[Post]) {
+    required init(email:String?, password:String?, username:String?, profPic: UIImage?, posts:[Post], followerList:[User], followingList:[User], favoritedList:[Post], repostList:[Post]) {
         self.email = email
         self.password = password
         self.username = username
         self.profPic = profPic
+        self.posts = posts
         self.followerList = followerList
         self.followingList = followingList
         self.favoritedList = favoritedList
@@ -36,6 +38,7 @@ class User: NSObject, NSCoding {
         aCoder.encodeObject(self.password, forKey: "password")
         aCoder.encodeObject(self.username, forKey: "username")
         aCoder.encodeObject(self.profPic, forKey: "profPic")
+        aCoder.encodeObject(self.posts, forKey: "posts")
         aCoder.encodeObject(self.followerList, forKey: "followerList")
         aCoder.encodeObject(self.followingList, forKey: "followingList")
         aCoder.encodeObject(self.favoritedList, forKey: "favoritedList")
@@ -48,12 +51,13 @@ class User: NSObject, NSCoding {
         let password = aDecoder.decodeObjectForKey("password") as? String
         let username = aDecoder.decodeObjectForKey("username") as? String
         let profPic = aDecoder.decodeObjectForKey("profPic") as? UIImage
+        let posts = aDecoder.decodeObjectForKey("posts") as! [Post]
         let followerList = aDecoder.decodeObjectForKey("followerList") as! [User]
         let followingList = aDecoder.decodeObjectForKey("followingList") as! [User]
-        let favoritedList = aDecoder.decodeObjectForKey("favoriteLdist") as! [Post]
+        let favoritedList = aDecoder.decodeObjectForKey("favoritedList") as! [Post]
         let repostList = aDecoder.decodeObjectForKey("repostList") as! [Post]
         
-        self.init(email:email, password:password, username:username, profPic:profPic, followerList:followerList, followingList:followingList, favoritedList:favoritedList, repostList:repostList)
+        self.init(email:email, password:password, username:username, profPic:profPic, posts:posts, followerList:followerList, followingList:followingList, favoritedList:favoritedList, repostList:repostList)
     }
     
     func changeProfPic(newProfPic:UIImage) {
@@ -65,7 +69,7 @@ class User: NSObject, NSCoding {
         user.followerList.append(self)
     }
     
-    func unfollow(user:User) {
+    func unfollow(user:User) {        
         if let indexToRemove = self.followingList.indexOf(user) {
             followingList.removeAtIndex(indexToRemove)
         }
@@ -75,4 +79,7 @@ class User: NSObject, NSCoding {
         }
     }
     
+    func follows(user:User) -> Bool {
+        return followingList.contains(user)
+    }
 }

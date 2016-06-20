@@ -15,12 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var tabController: UITabBarController?
     
+    var landingScreenNavController:UINavigationController?
+    var landingScreenViewController:LandingScreenViewController?
+    
     var newsfeedNavController: UINavigationController?
-    var searchNavController: UINavigationController?
-    var profileNavController: UINavigationController?
-
     var newsfeedViewController: NewsfeedViewController?
+
+    var searchNavController: UINavigationController?
     var searchViewController: SearchViewController?
+    
+    var profileNavController: UINavigationController?
     var profileViewController: ProfileViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -28,9 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabController = UITabBarController()
 
+        landingScreenViewController = LandingScreenViewController()
+        landingScreenNavController = UINavigationController(rootViewController: landingScreenViewController!)
+        
         newsfeedViewController = NewsfeedViewController()
         newsfeedNavController = UINavigationController(rootViewController: newsfeedViewController!)
-        newsfeedNavController?.navigationBarHidden = false
         
         searchViewController = SearchViewController()
         searchNavController = UINavigationController(rootViewController: searchViewController!)
@@ -45,10 +51,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         profileViewController?.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), tag: 2)
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = self.tabController
         self.window?.makeKeyAndVisible()
         
+        if UserController.sharedInstance.getLoggedInUser() != nil {
+            navigateToHomeScreen()
+        }
+            
+        else {
+            navigateToLandingScreen()
+        }
+        
         return true
+    }
+    
+    func navigateToHomeScreen() {
+        self.window?.rootViewController = self.tabController
+    }
+    
+    func navigateToLandingScreen() {
+        self.window?.rootViewController = self.landingScreenNavController
     }
 
     func applicationWillResignActive(application: UIApplication) {
