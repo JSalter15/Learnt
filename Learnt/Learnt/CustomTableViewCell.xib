@@ -17,11 +17,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="89" id="KGk-i7-Jjw" customClass="CustomTableViewCell" customModule="Learnt" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="125" id="KGk-i7-Jjw" customClass="CustomTableViewCell" customModule="Learnt" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="88.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="124.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="o0S-rX-Guu">
@@ -32,16 +32,16 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVa-XM-c78">
-                        <rect key="frame" x="53" y="8" width="259" height="21"/>
+                        <rect key="frame" x="53" y="5" width="259" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="VK5-Qt-8lf"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Body" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xeD-IE-3z0">
-                        <rect key="frame" x="48" y="27" width="264" height="55"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Body" translatesAutoresizingMaskIntoConstraints="NO" id="xeD-IE-3z0">
+                        <rect key="frame" x="48" y="24" width="264" height="81.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -54,21 +54,32 @@
                             <constraint firstAttribute="height" constant="21" id="n0l-vQ-vs7"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYs-IO-kEA">
+                        <rect key="frame" x="288" y="93" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="FgM-7v-grC"/>
+                            <constraint firstAttribute="height" constant="20" id="GmP-Ha-igz"/>
+                        </constraints>
+                        <state key="normal" image="trash"/>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="xeD-IE-3z0" secondAttribute="bottom" constant="-1.5" id="7U9-yZ-zY8"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BYs-IO-kEA" secondAttribute="trailing" constant="4" id="B2C-wM-ZhZ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Xxp-XE-SRy" secondAttribute="trailing" id="GFU-0b-5GD"/>
                     <constraint firstAttribute="topMargin" secondItem="Xxp-XE-SRy" secondAttribute="top" id="M2I-Rw-04b"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PVa-XM-c78" secondAttribute="trailing" id="MqL-fn-6MF"/>
                     <constraint firstItem="xeD-IE-3z0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="40" id="PM4-EJ-rpm"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xeD-IE-3z0" secondAttribute="trailing" id="aBB-xe-slq"/>
                     <constraint firstAttribute="leadingMargin" secondItem="o0S-rX-Guu" secondAttribute="leading" id="dG3-Ho-siZ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="xeD-IE-3z0" secondAttribute="bottom" constant="11" id="nDs-nu-m3v"/>
                     <constraint firstAttribute="topMargin" secondItem="o0S-rX-Guu" secondAttribute="top" id="o2I-tq-riT"/>
-                    <constraint firstAttribute="topMargin" secondItem="PVa-XM-c78" secondAttribute="top" id="qfh-ty-8HF"/>
+                    <constraint firstAttribute="topMargin" secondItem="PVa-XM-c78" secondAttribute="top" constant="3" id="qfh-ty-8HF"/>
                     <constraint firstItem="xeD-IE-3z0" firstAttribute="top" secondItem="PVa-XM-c78" secondAttribute="bottom" constant="-2" id="qwa-4X-UKR"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="xeD-IE-3z0" secondAttribute="trailing" id="rj9-4g-oXP"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BYs-IO-kEA" secondAttribute="bottom" constant="3.5" id="z3L-y2-hZK"/>
                     <constraint firstItem="PVa-XM-c78" firstAttribute="leading" secondItem="o0S-rX-Guu" secondAttribute="trailing" constant="5" id="zMv-6F-2Zo"/>
                 </constraints>
             </tableViewCellContentView>
@@ -78,11 +89,13 @@
                 <outlet property="dateLabel" destination="Xxp-XE-SRy" id="x4p-UU-ROo"/>
                 <outlet property="nameLabel" destination="PVa-XM-c78" id="YMf-zz-Aiw"/>
                 <outlet property="profPic" destination="o0S-rX-Guu" id="jXN-kB-o9E"/>
+                <outlet property="trashButton" destination="BYs-IO-kEA" id="HaI-ZZ-PGq"/>
             </connections>
-            <point key="canvasLocation" x="307" y="406.5"/>
+            <point key="canvasLocation" x="307" y="424.5"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="defaultImage.png" width="480" height="480"/>
+        <image name="trash" width="40" height="40"/>
     </resources>
 </document>

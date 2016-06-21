@@ -12,11 +12,11 @@ class Post: NSObject, NSCoding {
     
     var poster:User?
     var body:String?
-    var date:NSDate?
+    var date:NSDate = NSDate()
     var favoriters:[User] = []
     var reposters:[User] = []
     
-    required init(poster:User?, body:String?, date:NSDate?, favoriters:[User], reposters:[User]) {
+    required init(poster:User?, body:String?, date:NSDate, favoriters:[User], reposters:[User]) {
         self.poster = poster
         self.body = body
         self.date = date
@@ -27,7 +27,7 @@ class Post: NSObject, NSCoding {
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.poster, forKey: "poster")
         aCoder.encodeObject(self.body, forKey: "body")
-        aCoder.encodeObject(self.date, forKey: "data")
+        aCoder.encodeObject(self.date, forKey: "date")
         aCoder.encodeObject(self.favoriters, forKey: "favoriters")
         aCoder.encodeObject(self.reposters, forKey: "reposters")
     }
@@ -39,7 +39,7 @@ class Post: NSObject, NSCoding {
         let favoriters = aDecoder.decodeObjectForKey("favoriters") as! [User]
         let reposters = aDecoder.decodeObjectForKey("reposters") as! [User]
         
-        self.init(poster:poster, body:body, date:date, favoriters:favoriters, reposters:reposters)
+        self.init(poster:poster, body:body, date:date!, favoriters:favoriters, reposters:reposters)
     }
     
     func favorite(user:User) {

@@ -19,14 +19,20 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
       
         let newPostButton = UIBarButtonItem(image: UIImage(named: "new_post"), style: .Plain, target: self, action: #selector(newPostTapped))
-        newPostButton.tintColor = UIColor.lightGrayColor()
+        newPostButton.tintColor = UIColor.orangeColor()
         navigationItem.rightBarButtonItem = newPostButton
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 46, height: 46))
+        /*let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 46, height: 46))
         imageView.contentMode = .ScaleAspectFit
         let image = UIImage(named: "lightbulb")
         imageView.image = image
-        navigationItem.titleView = imageView
+        navigationItem.titleView = imageView*/
+        
+        let logo = UIBarButtonItem(image: UIImage(named: "logo"), style: .Plain, target: self, action: nil)
+        logo.tintColor = UIColor.orangeColor()
+        let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -12
+        navigationItem.setLeftBarButtonItems([negativeSpacer, logo], animated: true)
         
         allPosts = PostController.sharedInstance.getPosts()
         
@@ -65,7 +71,20 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80
+        let post = allPosts[indexPath.row]
+        let user = UserController.sharedInstance.getLoggedInUser()
+        var length = 0
+        
+        if post.body?.characters.count > 100 {
+            length = 90
+        }
+        else {
+            length = 70
+        }
+        if post.poster?.email == user?.email {
+            length = length + 25
+        }
+        return CGFloat(length)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -84,32 +103,55 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.locale = NSLocale.currentLocale()
+        let dateFormatter2 = NSDateFormatter()
+        dateFormatter.locale = NSLocale.currentLocale()
         
-        if post.date!.isLessThanDate(oneDayAgo) {
+        let user = UserController.sharedInstance.getLoggedInUser()
+        if post.poster?.email == user?.email {
+            cell.trashButton.hidden = false
+            cell.trashButton.tag = indexPath.row
+            cell.trashButton.addTarget(self, action: #selector(trashTapped(_:)), forControlEvents: .TouchUpInside)
+        }
+        else {
+            cell.trashButton.hidden = true
+        }
+        
+        if post.date.isLessThanDate(oneDayAgo) {
             dateFormatter.dateFormat = "MM/dd/yy"
-            let convertedDate:String = dateFormatter.stringFromDate(post.date!)
+            let convertedDate:String = dateFormatter.stringFromDate(post.date)
             cell.dateLabel.text = convertedDate
         }
-        else if post.date!.isGreaterThanDate(oneHourAgo) {
+        else if post.date.isGreaterThanDate(oneHourAgo) {
             dateFormatter.dateFormat = "m"
-            let convertedDate:String = dateFormatter.stringFromDate(post.date!)
-            cell.dateLabel.text = convertedDate + "m"
+            let postMin:Int = Int(dateFormatter.stringFromDate(post.date))!
+            
+            dateFormatter2.dateFormat = "m"
+            let currentMin:Int = Int(dateFormatter2.stringFromDate(currentDate))!
+            
+            cell.dateLabel.text = String(currentMin - postMin) + "m"
         }
             
         else {
             dateFormatter.dateFormat = "H"
-            let postHour:Int = Int(dateFormatter.stringFromDate(post.date!))!
-            
-            let dateFormatter2 = NSDateFormatter()
-            dateFormatter.locale = NSLocale.currentLocale()
+            let postHour:Int = Int(dateFormatter.stringFromDate(post.date))!
+
             dateFormatter2.dateFormat = "H"
-            let currentHour:Int = Int(dateFormatter.stringFromDate(currentDate))!
+            let currentHour:Int = Int(dateFormatter2.stringFromDate(currentDate))!
 
             cell.dateLabel.text = String(currentHour - postHour) + "h"
         }
         
-        
         return cell
+    }
+    
+    func trashTapped(sender: UIButton) {
+        print("hi")
+        print(sender.tag)
+        
+        /*let indexPath:NSIndexPath = NSIndexPath(forRow: sender.tag, inSection: 1)
+        
+        self.allPosts.removeAtIndex(sender.tag)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)*/
     }
 
     override func didReceiveMemoryWarning() {

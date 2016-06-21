@@ -3,12 +3,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="Learnt" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionField" destination="WmC-yd-y8X" id="Kfk-4m-FlF"/>
                 <outlet property="emailField" destination="2of-LS-qIT" id="Pzn-ke-sTx"/>
                 <outlet property="imageView" destination="NMj-BJ-CIt" id="sAK-Y6-hYb"/>
+                <outlet property="nameField" destination="uwG-84-TQn" id="q2F-EH-a7j"/>
                 <outlet property="passwordField" destination="w9s-KA-bbK" id="hRV-dh-7GS"/>
                 <outlet property="usernameField" destination="KN8-Zg-yyX" id="r4o-5N-aUr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -19,54 +22,77 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2of-LS-qIT" customClass="EmailValidatedTextField" customModule="Learnt" customModuleProvider="target">
-                    <rect key="frame" x="34" y="60" width="533" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uwG-84-TQn" customClass="EmailValidatedTextField" customModule="Learnt" customModuleProvider="target">
-                    <rect key="frame" x="34" y="98" width="533" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="emailAddress"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KN8-Zg-yyX">
-                    <rect key="frame" x="34" y="136" width="533" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="quick description about yourself" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WmC-yd-y8X">
-                    <rect key="frame" x="34" y="174" width="533" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80S-D7-FH7">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80S-D7-FH7">
                     <rect key="frame" x="272" y="516" width="57" height="30"/>
                     <state key="normal" title="Register"/>
                     <connections>
                         <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="zEc-BA-VXb"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAi-T6-nvf">
-                    <rect key="frame" x="226" y="262" width="149" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="NMj-BJ-CIt">
+                    <rect key="frame" x="200" y="308" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="d0D-Wq-7bN"/>
+                        <constraint firstAttribute="width" secondItem="NMj-BJ-CIt" secondAttribute="height" multiplier="1:1" id="rhI-KJ-qnx"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2of-LS-qIT" customClass="EmailValidatedTextField" customModule="Learnt" customModuleProvider="target">
+                    <rect key="frame" x="34" y="80" width="533" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uwG-84-TQn">
+                    <rect key="frame" x="34" y="118" width="533" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="emailAddress"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KN8-Zg-yyX">
+                    <rect key="frame" x="34" y="156" width="533" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="quick description about yourself" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WmC-yd-y8X">
+                    <rect key="frame" x="34" y="194" width="533" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAi-T6-nvf">
+                    <rect key="frame" x="226" y="270" width="149" height="30"/>
                     <state key="normal" title="Upload profile picture"/>
                     <connections>
                         <action selector="uploadPhotoTapped:" destination="-1" eventType="touchUpInside" id="8Gd-ai-zJ4"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="defaultImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="NMj-BJ-CIt">
-                    <rect key="frame" x="200" y="308" width="200" height="200"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="Uzr-X9-Nn1"/>
-                        <constraint firstAttribute="height" constant="200" id="e0T-OT-bPD"/>
-                    </constraints>
-                </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w9s-KA-bbK">
-                    <rect key="frame" x="34" y="212" width="533" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w9s-KA-bbK">
+                    <rect key="frame" x="34" y="232" width="533" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="80S-D7-FH7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1QO-1E-m62"/>
+                <constraint firstItem="2of-LS-qIT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="33j-ba-ac3"/>
+                <constraint firstAttribute="bottom" secondItem="80S-D7-FH7" secondAttribute="bottom" constant="54" id="5KJ-hx-T84"/>
+                <constraint firstItem="WmC-yd-y8X" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="D6I-yL-WHy"/>
+                <constraint firstItem="w9s-KA-bbK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="FF3-60-euL"/>
+                <constraint firstItem="w9s-KA-bbK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="232" id="HSk-cr-fZG"/>
+                <constraint firstItem="uwG-84-TQn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="PV3-7Z-L3S"/>
+                <constraint firstItem="2of-LS-qIT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="UyR-BB-cKZ"/>
+                <constraint firstAttribute="trailing" secondItem="2of-LS-qIT" secondAttribute="trailing" constant="33" id="Vuj-7w-52g"/>
+                <constraint firstAttribute="trailing" secondItem="KN8-Zg-yyX" secondAttribute="trailing" constant="33" id="XSa-77-Mxs"/>
+                <constraint firstItem="KN8-Zg-yyX" firstAttribute="top" secondItem="uwG-84-TQn" secondAttribute="bottom" constant="8" id="hex-8r-L3c"/>
+                <constraint firstAttribute="trailing" secondItem="w9s-KA-bbK" secondAttribute="trailing" constant="33" id="io8-1E-6he"/>
+                <constraint firstItem="WmC-yd-y8X" firstAttribute="top" secondItem="KN8-Zg-yyX" secondAttribute="bottom" constant="8" id="jbx-Vq-4jz"/>
+                <constraint firstAttribute="trailing" secondItem="uwG-84-TQn" secondAttribute="trailing" constant="33" id="m95-I0-wc3"/>
+                <constraint firstItem="KN8-Zg-yyX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="nh2-fR-eUe"/>
+                <constraint firstAttribute="trailing" secondItem="WmC-yd-y8X" secondAttribute="trailing" constant="33" id="qGR-8t-dOQ"/>
+                <constraint firstItem="NMj-BJ-CIt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uaC-1U-ixy"/>
+                <constraint firstItem="NMj-BJ-CIt" firstAttribute="top" secondItem="DAi-T6-nvf" secondAttribute="bottom" constant="8" id="wCd-Uw-i9z"/>
+                <constraint firstItem="uwG-84-TQn" firstAttribute="top" secondItem="2of-LS-qIT" secondAttribute="bottom" constant="8" id="xsS-zI-OwM"/>
+                <constraint firstItem="DAi-T6-nvf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yV5-J9-6j0"/>
+                <constraint firstItem="DAi-T6-nvf" firstAttribute="top" secondItem="w9s-KA-bbK" secondAttribute="bottom" constant="8" id="yV8-DE-LJ6"/>
+            </constraints>
         </view>
     </objects>
     <resources>

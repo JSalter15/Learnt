@@ -14,6 +14,8 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var descriptionField: UITextField!
     
     let imagePicker = UIImagePickerController()
     
@@ -48,7 +50,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
         let profPic:UIImage? = imageView.image
         
         if emailField.validate() {
-            let (user, message) = UserController.sharedInstance.registerUser(email!, password: password!, username:username, profPic:profPic, name: "Joe Salter", descriptor: "Princeton '18")
+            let (user, message) = UserController.sharedInstance.registerUser(email!, password: password!, username:username, profPic:profPic, name: nameField.text, descriptor: descriptionField.text)
             
             if (user != nil) {
                 print("User registered view registration view")

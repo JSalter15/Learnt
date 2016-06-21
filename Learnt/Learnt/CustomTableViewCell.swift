@@ -14,6 +14,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var trashButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
