@@ -43,6 +43,7 @@
 		328320A31D1880A6008A66BC /* LandingScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328320A11D1880A6008A66BC /* LandingScreenViewController.xib */; };
 		328320AA1D1880C0008A66BC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328320A81D1880C0008A66BC /* RegisterViewController.swift */; };
 		328320AB1D1880C0008A66BC /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328320A91D1880C0008A66BC /* RegisterViewController.xib */; };
+		328320EF1D19B2E2008A66BC /* NSDateComparisonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328320EE1D19B2E2008A66BC /* NSDateComparisonExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		328320A11D1880A6008A66BC /* LandingScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingScreenViewController.xib; sourceTree = "<group>"; };
 		328320A81D1880C0008A66BC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		328320A91D1880C0008A66BC /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		328320EE1D19B2E2008A66BC /* NSDateComparisonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComparisonExtension.swift; sourceTree = "<group>"; };
 		D642C28E9B09F34857C89F74 /* Pods_Learnt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learnt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E581C16BE0E456D5025409 /* Pods-Learnt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learnt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Learnt/Pods-Learnt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 				3283205E1D1810E9008A66BC /* Post.swift */,
 				328320601D1810F6008A66BC /* EmailValidatedTextField.swift */,
 				328320621D181106008A66BC /* PersistenceManager.swift */,
+				328320EE1D19B2E2008A66BC /* NSDateComparisonExtension.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				328320801D18508B008A66BC /* NewPostViewController.swift in Sources */,
+				328320EF1D19B2E2008A66BC /* NSDateComparisonExtension.swift in Sources */,
 				3283202E1D18059E008A66BC /* ViewController.swift in Sources */,
 				328320A21D1880A6008A66BC /* LandingScreenViewController.swift in Sources */,
 				328320671D181AF8008A66BC /* NewsfeedViewController.swift in Sources */,

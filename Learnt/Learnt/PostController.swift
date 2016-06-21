@@ -25,7 +25,7 @@ class PostController {
     var allPosts:[Post] = []
     
     func newPost(post:Post) {
-        allPosts.append(post)
+        allPosts.insert(post, atIndex: 0)
         PersistenceManager.saveNSArray(allPosts, fileName: "allPosts")
     }
     

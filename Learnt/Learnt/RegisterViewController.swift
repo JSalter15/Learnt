@@ -48,7 +48,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
         let profPic:UIImage? = imageView.image
         
         if emailField.validate() {
-            let (user, message) = UserController.sharedInstance.registerUser(email!, password: password!, username:username, profPic:profPic)
+            let (user, message) = UserController.sharedInstance.registerUser(email!, password: password!, username:username, profPic:profPic, name: "Joe Salter", descriptor: "Princeton '18")
             
             if (user != nil) {
                 print("User registered view registration view")

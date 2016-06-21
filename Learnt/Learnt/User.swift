@@ -15,17 +15,21 @@ class User: NSObject, NSCoding {
     var password: String?
     var username: String?
     var profPic: UIImage?
+    var name: String?
+    var descriptor: String?
     var posts: [Post] = []
     var followerList: [User] = []
     var followingList: [User] = []
     var favoritedList: [Post] = []
     var repostList: [Post] = []
     
-    required init(email:String?, password:String?, username:String?, profPic: UIImage?, posts:[Post], followerList:[User], followingList:[User], favoritedList:[Post], repostList:[Post]) {
+    required init(email:String?, password:String?, username:String?, profPic: UIImage?, name: String?, descriptor: String?,posts:[Post], followerList:[User], followingList:[User], favoritedList:[Post], repostList:[Post]) {
         self.email = email
         self.password = password
         self.username = username
         self.profPic = profPic
+        self.name = name
+        self.descriptor = descriptor
         self.posts = posts
         self.followerList = followerList
         self.followingList = followingList
@@ -38,6 +42,8 @@ class User: NSObject, NSCoding {
         aCoder.encodeObject(self.password, forKey: "password")
         aCoder.encodeObject(self.username, forKey: "username")
         aCoder.encodeObject(self.profPic, forKey: "profPic")
+        aCoder.encodeObject(self.name, forKey: "name")
+        aCoder.encodeObject(self.descriptor, forKey: "descriptor")
         aCoder.encodeObject(self.posts, forKey: "posts")
         aCoder.encodeObject(self.followerList, forKey: "followerList")
         aCoder.encodeObject(self.followingList, forKey: "followingList")
@@ -51,13 +57,15 @@ class User: NSObject, NSCoding {
         let password = aDecoder.decodeObjectForKey("password") as? String
         let username = aDecoder.decodeObjectForKey("username") as? String
         let profPic = aDecoder.decodeObjectForKey("profPic") as? UIImage
-        let posts = aDecoder.decodeObjectForKey("posts") as! [Post]
+        let name = aDecoder.decodeObjectForKey("name") as? String
+        let descriptor = aDecoder.decodeObjectForKey("descriptor") as? String
+        let posts = aDecoder.decodeObjectForKey("posts") as? [Post]
         let followerList = aDecoder.decodeObjectForKey("followerList") as! [User]
         let followingList = aDecoder.decodeObjectForKey("followingList") as! [User]
         let favoritedList = aDecoder.decodeObjectForKey("favoritedList") as! [Post]
         let repostList = aDecoder.decodeObjectForKey("repostList") as! [Post]
         
-        self.init(email:email, password:password, username:username, profPic:profPic, posts:posts, followerList:followerList, followingList:followingList, favoritedList:favoritedList, repostList:repostList)
+        self.init(email:email, password:password, username:username, profPic:profPic, name: name, descriptor:descriptor, posts:posts!, followerList:followerList, followingList:followingList, favoritedList:favoritedList, repostList:repostList)
     }
     
     func changeProfPic(newProfPic:UIImage) {

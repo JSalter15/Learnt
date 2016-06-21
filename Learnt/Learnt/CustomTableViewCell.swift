@@ -13,6 +13,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bodyTextView: UITextView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -35,7 +35,7 @@ class Post: NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         let poster = aDecoder.decodeObjectForKey("poster") as? User
         let body = aDecoder.decodeObjectForKey("body") as? String
-        let date = NSDate() //aDecoder.decodeObjectForKey("date") as? NSDate
+        let date = aDecoder.decodeObjectForKey("date") as? NSDate
         let favoriters = aDecoder.decodeObjectForKey("favoriters") as! [User]
         let reposters = aDecoder.decodeObjectForKey("reposters") as! [User]
         

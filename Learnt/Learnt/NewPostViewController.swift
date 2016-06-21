@@ -25,11 +25,27 @@ class NewPostViewController: UIViewController, UIGestureRecognizerDelegate, UITe
         tapRecognizer.delegate = self
         textView.addGestureRecognizer(tapRecognizer)
         
+        let numberToolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
+        numberToolbar.barStyle = UIBarStyle.Default
+        numberToolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.handlePost(_:)))]
+        numberToolbar.sizeToFit()
+        textView.inputAccessoryView = numberToolbar
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
+            if (textView.text == "") {
+                textView.text = "drop some knowledge here"
+                textView.textColor = UIColor.lightGrayColor()
+                
+                let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+                tapRecognizer.delegate = self
+                textView.addGestureRecognizer(tapRecognizer)
+                
+            }
             return false
         }
         return true
@@ -42,43 +58,23 @@ class NewPostViewController: UIViewController, UIGestureRecognizerDelegate, UITe
             textView.textColor = UIColor.blackColor()
             textView.becomeFirstResponder()
         }
-        
-        let numberToolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
-        numberToolbar.barStyle = UIBarStyle.Default
-        numberToolbar.items = [
-            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.handlePost(_:)))]
-        numberToolbar.sizeToFit()
-        textView.inputAccessoryView = numberToolbar
     }
     
     func handlePost(sender: UIBarButtonItem) {
         let poster = UserController.sharedInstance.getLoggedInUser()
-        print(poster)
+        print(poster!.email)
         let post:Post = Post(poster: poster, body: textView.text, date: NSDate(), favoriters: [], reposters: [])
         
         PostController.sharedInstance.newPost(post)
         poster?.posts.append(post)
         UserController.sharedInstance.newPostForUser(post)
-        print(poster?.posts.count)
+        //print(poster?.posts.count)
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func closeButtonTapped(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func postButtonTapped(sender: UIButton) {
-        let poster = UserController.sharedInstance.getLoggedInUser()
-        print(poster)
-        let post:Post = Post(poster: poster, body: textView.text, date: NSDate(), favoriters: [], reposters: [])
-        
-        PostController.sharedInstance.newPost(post)
-        poster?.posts.append(post)
-        UserController.sharedInstance.newPostForUser(post)
-        print(poster?.posts.count)
-        
+        textView.resignFirstResponder()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

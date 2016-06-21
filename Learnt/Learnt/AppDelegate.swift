@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func navigateToLandingScreen() {
-        self.window?.rootViewController = self.landingScreenNavController
+        self.window?.rootViewController = self.landingScreenViewController
     }
 
     func applicationWillResignActive(application: UIApplication) {

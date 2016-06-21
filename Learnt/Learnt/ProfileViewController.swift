@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         navigationController?.navigationBarHidden = true
         
         let user = UserController.sharedInstance.getLoggedInUser()
-        myPosts = user!.posts
+        myPosts = (user?.posts)!
         
         profPic.contentMode = .ScaleToFill
         profPic.image = user?.profPic
@@ -39,7 +39,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidAppear(animated: Bool) {
         let user = UserController.sharedInstance.getLoggedInUser()
         print(user?.posts.count)
-        myPosts = user!.posts
+        myPosts = (user?.posts)!
+        
+        profPic.contentMode = .ScaleToFill
+        profPic.image = user?.profPic
+        nameLabel.text = user?.name
+        usernameLabel.text = "@" + (user?.username)!
+        descriptionLabel.text = user?.descriptor
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -25,9 +25,9 @@ class UserController {
     
     var allUsers: [User] = []
     
-    var noUser = User(email: "", password: "", username: "", profPic: nil, posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
+    var noUser = User(email: "", password: "", username: "", profPic: nil, name: "", descriptor: "", posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
     
-    func registerUser(email:String, password:String, username:String?, profPic: UIImage?) -> (User?, String?) {
+    func registerUser(email:String, password:String, username:String?, profPic: UIImage?, name:String?, descriptor:String?) -> (User?, String?) {
         
         getUsers()
         
@@ -37,7 +37,7 @@ class UserController {
             return (nil, "There is already a user registered with that email")
         }
         
-        let user = User(email: email, password: password, username: username, profPic: profPic, posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
+        let user = User(email: email, password: password, username: username, profPic: profPic, name: name, descriptor: descriptor, posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
         
         allUsers.append(user)
         
@@ -133,7 +133,6 @@ class UserController {
         
         if let index = allUsers.indexOf({$0.email == currentUser?.email})
         {
-            // remove the place
             allUsers[index].posts.append(post)
             
             // update the array

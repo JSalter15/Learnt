@@ -8,6 +8,7 @@
     <customFonts key="customFonts">
         <mutableArray key="Ubuntu-L.ttf">
             <string>Ubuntu-Light</string>
+            <string>Ubuntu-Light</string>
         </mutableArray>
         <mutableArray key="Ubuntu-R.ttf">
             <string>Ubuntu</string>
@@ -46,9 +47,21 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxp-XE-SRy">
+                        <rect key="frame" x="248" y="8" width="64" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="IAB-EF-CEL"/>
+                            <constraint firstAttribute="height" constant="21" id="n0l-vQ-vs7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="xeD-IE-3z0" secondAttribute="bottom" constant="-1.5" id="7U9-yZ-zY8"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Xxp-XE-SRy" secondAttribute="trailing" id="GFU-0b-5GD"/>
+                    <constraint firstAttribute="topMargin" secondItem="Xxp-XE-SRy" secondAttribute="top" id="M2I-Rw-04b"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PVa-XM-c78" secondAttribute="trailing" id="MqL-fn-6MF"/>
                     <constraint firstItem="xeD-IE-3z0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="40" id="PM4-EJ-rpm"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xeD-IE-3z0" secondAttribute="trailing" id="aBB-xe-slq"/>
@@ -62,6 +75,7 @@
             <accessibility key="accessibilityConfiguration" identifier="CustomTableViewCell"/>
             <connections>
                 <outlet property="bodyTextView" destination="xeD-IE-3z0" id="oqk-MQ-ZQ3"/>
+                <outlet property="dateLabel" destination="Xxp-XE-SRy" id="x4p-UU-ROo"/>
                 <outlet property="nameLabel" destination="PVa-XM-c78" id="YMf-zz-Aiw"/>
                 <outlet property="profPic" destination="o0S-rX-Guu" id="jXN-kB-o9E"/>
             </connections>
