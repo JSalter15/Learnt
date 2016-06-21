@@ -64,7 +64,7 @@ class PostController {
         getPosts()
         
         for post in allPosts {
-            if post.poster == user {
+            if post.poster?.email == user.email {
                 followedPosts.append(post)
             }
             else if user.follows(post.poster!) {

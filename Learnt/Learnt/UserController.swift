@@ -76,11 +76,16 @@ class UserController {
         
         getUsers()
         
-        for everyUser in allUsers {
+        if let _ = allUsers.indexOf({$0.email == user.email && $0.password == user.password})
+        {
+            return true
+        }
+        
+        /*for everyUser in allUsers {
             if ((user.email == everyUser.email) && user.password == everyUser.password){
                 return true
             }
-        }
+        }*/
         
         return false
     }
@@ -88,11 +93,17 @@ class UserController {
     func doesUserExist(email:String, password:String?) -> User? {
         getUsers()
         
-        for user in allUsers {
+        if let index = allUsers.indexOf({$0.email == email && $0.password == password})
+        {
+            // remove the place
+            return allUsers[index]
+        }
+        
+        /*for user in allUsers {
             if ((user.email == email) && (user.password == password)) {
                 return user
             }
-        }
+        }*/
         
         return nil
     }
@@ -115,5 +126,18 @@ class UserController {
         }
         
         return nil
+    }
+    
+    func newPostForUser(post:Post) {
+        let currentUser = getLoggedInUser()
+        
+        if let index = allUsers.indexOf({$0.email == currentUser?.email})
+        {
+            // remove the place
+            allUsers[index].posts.append(post)
+            
+            // update the array
+            PersistenceManager.saveNSArray(allUsers, fileName: "allUsers")
+        }
     }
 }

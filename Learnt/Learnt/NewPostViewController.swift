@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewPostViewController: UIViewController {
+class NewPostViewController: UIViewController, UIGestureRecognizerDelegate, UITextViewDelegate {
 
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var textView: UITextView!
@@ -18,6 +18,51 @@ class NewPostViewController: UIViewController {
 
         let user = UserController.sharedInstance.getLoggedInUser()
         header.text = "Today @\((user?.username)!) learned..."
+        
+        textView.delegate = self
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        tapRecognizer.delegate = self
+        textView.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+        print("hi")
+        if textView.text == "drop some knowledge here" {
+            textView.text = ""
+            textView.textColor = UIColor.blackColor()
+            textView.becomeFirstResponder()
+        }
+        
+        let numberToolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
+        numberToolbar.barStyle = UIBarStyle.Default
+        numberToolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.handlePost(_:)))]
+        numberToolbar.sizeToFit()
+        textView.inputAccessoryView = numberToolbar
+    }
+    
+    func handlePost(sender: UIBarButtonItem) {
+        let poster = UserController.sharedInstance.getLoggedInUser()
+        print(poster)
+        let post:Post = Post(poster: poster, body: textView.text, date: NSDate(), favoriters: [], reposters: [])
+        
+        PostController.sharedInstance.newPost(post)
+        poster?.posts.append(post)
+        UserController.sharedInstance.newPostForUser(post)
+        print(poster?.posts.count)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func closeButtonTapped(sender: UIButton) {
@@ -26,10 +71,13 @@ class NewPostViewController: UIViewController {
     
     @IBAction func postButtonTapped(sender: UIButton) {
         let poster = UserController.sharedInstance.getLoggedInUser()
-        
+        print(poster)
         let post:Post = Post(poster: poster, body: textView.text, date: NSDate(), favoriters: [], reposters: [])
         
         PostController.sharedInstance.newPost(post)
+        poster?.posts.append(post)
+        UserController.sharedInstance.newPostForUser(post)
+        print(poster?.posts.count)
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

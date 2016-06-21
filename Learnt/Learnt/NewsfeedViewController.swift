@@ -12,18 +12,16 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     
-    var allPosts:[Post] = []
+    //var allPosts:[Post] = []
     var followedPosts:[Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Learnt"
         let newPostButton = UIBarButtonItem(image: UIImage(named: "new_post"), style: .Plain, target: self, action: #selector(newPostTapped))
         
         navigationItem.rightBarButtonItem = newPostButton
         
-        allPosts = PostController.sharedInstance.getPosts()
         let user = UserController.sharedInstance.getLoggedInUser()
         followedPosts = PostController.sharedInstance.getPostsForUser(user!)
         
@@ -34,12 +32,15 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override func viewWillAppear(animated: Bool) {
-        allPosts = PostController.sharedInstance.getPosts()
         let user = UserController.sharedInstance.getLoggedInUser()
         followedPosts = PostController.sharedInstance.getPostsForUser(user!)
-        
+        sortPosts()
         tableView.reloadData()
 
+    }
+    
+    func sortPosts() { // should probably be called sort and not filter
+        followedPosts.sortInPlace() { $0.date!.compare($1.date!) == NSComparisonResult.OrderedDescending }
     }
 
     func newPostTapped() {
@@ -49,9 +50,9 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(followedPosts.count)
-        print(allPosts.count)
+        //print(allPosts.count)
         //return followedPosts.count
-        return allPosts.count
+        return followedPosts.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -59,7 +60,7 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let post = allPosts[indexPath.row]
+        let post = followedPosts[indexPath.row]
 
         //let post = followedPosts[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomTableViewCell") as! CustomTableViewCell

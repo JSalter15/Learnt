@@ -16,6 +16,8 @@ class CustomTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        profPic.contentMode = .ScaleToFill
         // Initialization code
     }
 

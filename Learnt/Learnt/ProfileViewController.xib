@@ -4,9 +4,25 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Ubuntu-L.ttf">
+            <string>Ubuntu-Light</string>
+        </mutableArray>
+        <mutableArray key="Ubuntu-R.ttf">
+            <string>Ubuntu</string>
+        </mutableArray>
+        <mutableArray key="Ubuntu-RI.ttf">
+            <string>Ubuntu-Italic</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Learnt" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionLabel" destination="brb-xY-ojf" id="JC2-hj-4ou"/>
+                <outlet property="nameLabel" destination="MLA-bD-cNE" id="Ie3-9o-Xkq"/>
+                <outlet property="profPic" destination="zk1-vT-Eri" id="AED-mu-zXf"/>
+                <outlet property="tableView" destination="l7V-QW-QDj" id="JpC-8R-gJD"/>
+                <outlet property="usernameLabel" destination="uPI-3W-2ZV" id="mZQ-qQ-b6k"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +30,72 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-vT-Eri">
+                    <rect key="frame" x="19" y="27" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="62I-cb-eDJ"/>
+                        <constraint firstAttribute="width" constant="150" id="Mep-aJ-WsM"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLA-bD-cNE">
+                    <rect key="frame" x="177" y="27.5" width="355.5" height="19.5"/>
+                    <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPI-3W-2ZV">
+                    <rect key="frame" x="177" y="48" width="355.5" height="13.5"/>
+                    <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brb-xY-ojf">
+                    <rect key="frame" x="19" y="185" width="567.5" height="16"/>
+                    <fontDescription key="fontDescription" name="Ubuntu-Italic" family="Ubuntu" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l7V-QW-QDj">
+                    <rect key="frame" x="0.0" y="216" width="600" height="384"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7RW-AG-urK">
+                    <rect key="frame" x="561" y="27" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="GhH-Q1-his"/>
+                        <constraint firstAttribute="height" constant="25" id="QKq-ov-gCX"/>
+                    </constraints>
+                    <state key="normal" image="settings"/>
+                    <connections>
+                        <action selector="settingsTapped:" destination="-1" eventType="touchUpInside" id="XTp-bO-Yub"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="zk1-vT-Eri" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="48p-fc-Eh0"/>
+                <constraint firstItem="7RW-AG-urK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="E1k-Pn-bao"/>
+                <constraint firstAttribute="trailing" secondItem="7RW-AG-urK" secondAttribute="trailing" constant="14" id="Gd7-Qj-Hge"/>
+                <constraint firstItem="zk1-vT-Eri" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="HU8-2g-pYN"/>
+                <constraint firstItem="l7V-QW-QDj" firstAttribute="top" secondItem="brb-xY-ojf" secondAttribute="bottom" constant="15" id="MHe-rg-mym"/>
+                <constraint firstItem="uPI-3W-2ZV" firstAttribute="top" secondItem="MLA-bD-cNE" secondAttribute="bottom" constant="1" id="OVq-np-E24"/>
+                <constraint firstItem="uPI-3W-2ZV" firstAttribute="leading" secondItem="zk1-vT-Eri" secondAttribute="trailing" constant="8" id="Ppb-lo-GIE"/>
+                <constraint firstAttribute="trailing" secondItem="l7V-QW-QDj" secondAttribute="trailing" id="QcF-h2-49D"/>
+                <constraint firstAttribute="trailing" secondItem="brb-xY-ojf" secondAttribute="trailing" constant="13.5" id="RUd-1J-Og3"/>
+                <constraint firstItem="l7V-QW-QDj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tjh-bc-AAz"/>
+                <constraint firstItem="brb-xY-ojf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="UsF-C0-km6"/>
+                <constraint firstItem="brb-xY-ojf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="185" id="ZCG-eZ-gRI"/>
+                <constraint firstAttribute="bottom" secondItem="l7V-QW-QDj" secondAttribute="bottom" id="Zsb-Qp-hxz"/>
+                <constraint firstItem="MLA-bD-cNE" firstAttribute="leading" secondItem="zk1-vT-Eri" secondAttribute="trailing" constant="8" id="mlZ-KV-Uuq"/>
+                <constraint firstAttribute="trailing" secondItem="MLA-bD-cNE" secondAttribute="trailing" constant="67.5" id="u31-Ac-bKZ"/>
+                <constraint firstItem="MLA-bD-cNE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27.5" id="vpE-kR-JQF"/>
+                <constraint firstAttribute="trailing" secondItem="uPI-3W-2ZV" secondAttribute="trailing" constant="8" id="x4k-1t-403"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="defaultImage.png" width="480" height="480"/>
+        <image name="settings" width="29" height="29"/>
+    </resources>
 </document>

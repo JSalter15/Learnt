@@ -35,27 +35,27 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="VK5-Qt-8lf"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Body" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xeD-IE-3z0">
-                        <rect key="frame" x="48" y="25" width="264" height="55"/>
+                        <rect key="frame" x="48" y="27" width="264" height="55"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                     </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="xeD-IE-3z0" secondAttribute="bottom" constant="0.5" id="7U9-yZ-zY8"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="xeD-IE-3z0" secondAttribute="bottom" constant="-1.5" id="7U9-yZ-zY8"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PVa-XM-c78" secondAttribute="trailing" id="MqL-fn-6MF"/>
                     <constraint firstItem="xeD-IE-3z0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="40" id="PM4-EJ-rpm"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xeD-IE-3z0" secondAttribute="trailing" id="aBB-xe-slq"/>
                     <constraint firstAttribute="leadingMargin" secondItem="o0S-rX-Guu" secondAttribute="leading" id="dG3-Ho-siZ"/>
                     <constraint firstAttribute="topMargin" secondItem="o0S-rX-Guu" secondAttribute="top" id="o2I-tq-riT"/>
                     <constraint firstAttribute="topMargin" secondItem="PVa-XM-c78" secondAttribute="top" id="qfh-ty-8HF"/>
-                    <constraint firstItem="xeD-IE-3z0" firstAttribute="top" secondItem="PVa-XM-c78" secondAttribute="bottom" constant="-4" id="qwa-4X-UKR"/>
+                    <constraint firstItem="xeD-IE-3z0" firstAttribute="top" secondItem="PVa-XM-c78" secondAttribute="bottom" constant="-2" id="qwa-4X-UKR"/>
                     <constraint firstItem="PVa-XM-c78" firstAttribute="leading" secondItem="o0S-rX-Guu" secondAttribute="trailing" constant="5" id="zMv-6F-2Zo"/>
                 </constraints>
             </tableViewCellContentView>
