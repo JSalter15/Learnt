@@ -60,14 +60,14 @@ class NewPostViewController: UIViewController, UIGestureRecognizerDelegate, UITe
     }
     
     func handlePost(sender: UIBarButtonItem) {
-        let poster = UserController.sharedInstance.getLoggedInUser()
-        print(poster!.email)
+        let poster = (UserController.sharedInstance.getLoggedInUser())!
+        print(poster.email)
         let post:Post = Post(poster: poster, body: textView.text, date: NSDate(), favoriters: [], reposters: [])
         
         PostController.sharedInstance.newPost(post)
-        poster?.posts.append(post)
+        poster.posts.insert(post, atIndex: 0)
         UserController.sharedInstance.newPostForUser(post)
-        //print(poster?.posts.count)
+        print((poster.posts.count))
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

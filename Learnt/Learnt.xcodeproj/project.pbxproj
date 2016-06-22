@@ -44,6 +44,8 @@
 		328320AA1D1880C0008A66BC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328320A81D1880C0008A66BC /* RegisterViewController.swift */; };
 		328320AB1D1880C0008A66BC /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328320A91D1880C0008A66BC /* RegisterViewController.xib */; };
 		328320EF1D19B2E2008A66BC /* NSDateComparisonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328320EE1D19B2E2008A66BC /* NSDateComparisonExtension.swift */; };
+		32A9A9861D1AE33B00441D7C /* HelpPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A9A9841D1AE33B00441D7C /* HelpPopUpViewController.swift */; };
+		32A9A9871D1AE33B00441D7C /* HelpPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A9A9851D1AE33B00441D7C /* HelpPopUpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		328320A81D1880C0008A66BC /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		328320A91D1880C0008A66BC /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		328320EE1D19B2E2008A66BC /* NSDateComparisonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComparisonExtension.swift; sourceTree = "<group>"; };
+		32A9A9841D1AE33B00441D7C /* HelpPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPopUpViewController.swift; sourceTree = "<group>"; };
+		32A9A9851D1AE33B00441D7C /* HelpPopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpPopUpViewController.xib; sourceTree = "<group>"; };
 		D642C28E9B09F34857C89F74 /* Pods_Learnt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learnt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E581C16BE0E456D5025409 /* Pods-Learnt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learnt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Learnt/Pods-Learnt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +165,8 @@
 				328320701D181B28008A66BC /* ProfileViewController.xib */,
 				3283207E1D18508B008A66BC /* NewPostViewController.swift */,
 				3283207F1D18508B008A66BC /* NewPostViewController.xib */,
+				32A9A9841D1AE33B00441D7C /* HelpPopUpViewController.swift */,
+				32A9A9851D1AE33B00441D7C /* HelpPopUpViewController.xib */,
 			);
 			name = TabViews;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				328320941D1854FF008A66BC /* Ubuntu-MI.ttf in Resources */,
 				328320361D18059E008A66BC /* LaunchScreen.storyboard in Resources */,
 				328320901D1854FF008A66BC /* Ubuntu-C.ttf in Resources */,
+				32A9A9871D1AE33B00441D7C /* HelpPopUpViewController.xib in Resources */,
 				3283206E1D181B19008A66BC /* SearchViewController.xib in Resources */,
 				328320951D1854FF008A66BC /* Ubuntu-R.ttf in Resources */,
 				3283208F1D1854FF008A66BC /* Ubuntu-BI.ttf in Resources */,
@@ -369,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A9A9861D1AE33B00441D7C /* HelpPopUpViewController.swift in Sources */,
 				328320801D18508B008A66BC /* NewPostViewController.swift in Sources */,
 				328320EF1D19B2E2008A66BC /* NSDateComparisonExtension.swift in Sources */,
 				3283202E1D18059E008A66BC /* ViewController.swift in Sources */,

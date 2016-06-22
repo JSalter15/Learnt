@@ -29,11 +29,11 @@ class PostController {
         PersistenceManager.saveNSArray(allPosts, fileName: "allPosts")
     }
     
-    func removePost(index:Int)
+    func removePost(atIndex:Int)
     {
         getPosts()
         
-        allPosts.removeAtIndex(index)
+        allPosts.removeAtIndex(atIndex)
         PersistenceManager.saveNSArray(allPosts, fileName: "allPosts")
     }
     

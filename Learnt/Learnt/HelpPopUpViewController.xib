@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Ubuntu-B.ttf">
+            <string>Ubuntu-Bold</string>
+        </mutableArray>
+        <mutableArray key="Ubuntu-R.ttf">
+            <string>Ubuntu</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpPopUpViewController" customModule="Learnt" customModuleProvider="target">
+            <connections>
+                <outlet property="popUpView" destination="nQ2-53-DFf" id="bq1-Hc-Bzz"/>
+                <outlet property="postButton" destination="Vvz-lZ-GN0" id="hDV-IS-dZM"/>
+                <outlet property="textView" destination="vJG-uF-ZKR" id="uv5-y1-fuh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQ2-53-DFf">
+                    <rect key="frame" x="163" y="118" width="275" height="364"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logoBigWhite" translatesAutoresizingMaskIntoConstraints="NO" id="uTf-eI-5jP">
+                            <rect key="frame" x="36" y="14" width="202" height="73"/>
+                        </imageView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" text="Press the post button in the top right corner and share something sweet that you learned today!" translatesAutoresizingMaskIntoConstraints="NO" id="vJG-uF-ZKR">
+                            <rect key="frame" x="40" y="134" width="195" height="96"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="96" id="Fvy-eI-JDc"/>
+                                <constraint firstAttribute="width" constant="195" id="tpN-3I-aj6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Fvy-eI-JDc"/>
+                                    <exclude reference="tpN-3I-aj6"/>
+                                </mask>
+                            </variation>
+                            <variation key="widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="Fvy-eI-JDc"/>
+                                    <include reference="tpN-3I-aj6"/>
+                                </mask>
+                            </variation>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvz-lZ-GN0">
+                            <rect key="frame" x="92.5" y="316" width="89" height="29"/>
+                            <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="15"/>
+                            <state key="normal" title="Get posting!">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="39a-bR-1Hf"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.83145032051282053" green="0.4182078467529578" blue="0.0023608859123716479" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Vvz-lZ-GN0" firstAttribute="centerX" secondItem="nQ2-53-DFf" secondAttribute="centerX" id="25N-l0-e7H"/>
+                        <constraint firstAttribute="bottom" secondItem="Vvz-lZ-GN0" secondAttribute="bottom" constant="20" id="5ht-Jz-rUl"/>
+                        <constraint firstItem="uTf-eI-5jP" firstAttribute="centerX" secondItem="nQ2-53-DFf" secondAttribute="centerX" id="DDT-yE-ckp"/>
+                        <constraint firstItem="vJG-uF-ZKR" firstAttribute="top" secondItem="uTf-eI-5jP" secondAttribute="bottom" constant="47" id="Igz-AV-23b"/>
+                        <constraint firstItem="uTf-eI-5jP" firstAttribute="top" secondItem="nQ2-53-DFf" secondAttribute="top" constant="14" id="PJG-2C-zCo"/>
+                        <constraint firstAttribute="width" constant="275" id="PoG-VB-ZNV"/>
+                        <constraint firstAttribute="height" constant="364" id="R26-0t-Ofy"/>
+                        <constraint firstAttribute="height" constant="364" id="Vbu-ab-OJn"/>
+                        <constraint firstAttribute="width" constant="259" id="Z5l-80-D4t"/>
+                        <constraint firstItem="uTf-eI-5jP" firstAttribute="top" secondItem="nQ2-53-DFf" secondAttribute="top" constant="14" id="bFg-SY-Dum"/>
+                        <constraint firstItem="vJG-uF-ZKR" firstAttribute="centerX" secondItem="uTf-eI-5jP" secondAttribute="centerX" id="jva-P8-a5a"/>
+                        <constraint firstItem="Vvz-lZ-GN0" firstAttribute="centerX" secondItem="nQ2-53-DFf" secondAttribute="centerX" id="lGL-UB-nlg"/>
+                        <constraint firstAttribute="bottom" secondItem="Vvz-lZ-GN0" secondAttribute="bottom" constant="19" id="pw2-jU-cKI"/>
+                        <constraint firstItem="uTf-eI-5jP" firstAttribute="centerX" secondItem="nQ2-53-DFf" secondAttribute="centerX" id="sKa-X4-HRZ"/>
+                        <constraint firstItem="vJG-uF-ZKR" firstAttribute="top" secondItem="uTf-eI-5jP" secondAttribute="bottom" constant="47" id="sNJ-05-KMT"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="PoG-VB-ZNV"/>
+                            <exclude reference="R26-0t-Ofy"/>
+                            <exclude reference="Vbu-ab-OJn"/>
+                            <exclude reference="Z5l-80-D4t"/>
+                            <exclude reference="DDT-yE-ckp"/>
+                            <exclude reference="PJG-2C-zCo"/>
+                            <exclude reference="bFg-SY-Dum"/>
+                            <exclude reference="sKa-X4-HRZ"/>
+                            <exclude reference="Igz-AV-23b"/>
+                            <exclude reference="jva-P8-a5a"/>
+                            <exclude reference="sNJ-05-KMT"/>
+                            <exclude reference="25N-l0-e7H"/>
+                            <exclude reference="5ht-Jz-rUl"/>
+                            <exclude reference="lGL-UB-nlg"/>
+                            <exclude reference="pw2-jU-cKI"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="R26-0t-Ofy"/>
+                            <include reference="Z5l-80-D4t"/>
+                            <include reference="bFg-SY-Dum"/>
+                            <include reference="sKa-X4-HRZ"/>
+                            <include reference="jva-P8-a5a"/>
+                            <include reference="sNJ-05-KMT"/>
+                            <include reference="5ht-Jz-rUl"/>
+                            <include reference="lGL-UB-nlg"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <mask key="constraints">
+                            <include reference="PoG-VB-ZNV"/>
+                            <include reference="Vbu-ab-OJn"/>
+                            <include reference="DDT-yE-ckp"/>
+                            <include reference="PJG-2C-zCo"/>
+                            <include reference="Igz-AV-23b"/>
+                            <include reference="25N-l0-e7H"/>
+                            <include reference="pw2-jU-cKI"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="nQ2-53-DFf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="D1P-wm-vEh"/>
+                <constraint firstItem="nQ2-53-DFf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="118" id="H2f-SH-kfe"/>
+                <constraint firstItem="nQ2-53-DFf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="56" id="VUE-KD-2Bt">
+                    <variation key="widthClass=compact" constant="59"/>
+                </constraint>
+                <constraint firstItem="nQ2-53-DFf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="118" id="qb1-Fr-Juz"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="D1P-wm-vEh"/>
+                    <exclude reference="H2f-SH-kfe"/>
+                    <exclude reference="VUE-KD-2Bt"/>
+                    <exclude reference="qb1-Fr-Juz"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="constraints">
+                    <include reference="VUE-KD-2Bt"/>
+                    <include reference="qb1-Fr-Juz"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=regular">
+                <mask key="constraints">
+                    <include reference="D1P-wm-vEh"/>
+                    <include reference="H2f-SH-kfe"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="logoBigWhite" width="229" height="73"/>
+    </resources>
+</document>

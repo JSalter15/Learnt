@@ -8,37 +8,36 @@
 
 import UIKit
 
-class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchResultsUpdating {
 
     @IBOutlet weak var tableView: UITableView!
     
     var allPosts:[Post] = []
     //var followedPosts:[Post] = []
+    var filteredPosts:[Post] = []
     
     var user:User?
     var refreshControl: UIRefreshControl!
     
+    let searchController = UISearchController(searchResultsController: nil)
+
     override func viewDidLoad() {
         super.viewDidLoad()
       
         let newPostButton = UIBarButtonItem(image: UIImage(named: "new_post"), style: .Plain, target: self, action: #selector(newPostTapped))
         newPostButton.tintColor = UIColor.orangeColor()
-        let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: nil)
+        let searchButton = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(searchTapped))
         searchButton.tintColor = UIColor.orangeColor()
         navigationItem.setRightBarButtonItems([newPostButton, searchButton], animated: true)
         //navigationItem.rightBarButtonItem = newPostButton
-        
-        /*let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 46, height: 46))
-        imageView.contentMode = .ScaleAspectFit
-        let image = UIImage(named: "lightbulb")
-        imageView.image = image
-        navigationItem.titleView = imageView*/
-        
-        let logo = UIBarButtonItem(image: UIImage(named: "logo"), style: .Plain, target: self, action: nil)
+
+        let logo = UIBarButtonItem(image: UIImage(named: "logo"), style: .Plain, target: self, action: #selector(logoTapped))
         logo.tintColor = UIColor.orangeColor()
         let negativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
         negativeSpacer.width = -12
         navigationItem.setLeftBarButtonItems([negativeSpacer, logo], animated: true)
+
+        self.tableView.contentOffset = CGPointMake(0, self.searchController.searchBar.frame.size.height)
         
         allPosts = PostController.sharedInstance.getPosts()
         
@@ -50,10 +49,43 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.placeholder = "Search for a username or a post!"
+        
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
         refreshControl.addTarget(self, action: #selector(self.refreshTable), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredPosts = allPosts.filter { post in
+            if post.poster!.username!.lowercaseString.containsString(searchText.lowercaseString) || post.body!.lowercaseString.containsString(searchText.lowercaseString) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func logoTapped() {
+        let pvc = HelpPopUpViewController()
+        pvc.showInView(self.view, animated: true)
+    }
+    
+    func searchTapped() {
+        self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+        searchController.searchBar.becomeFirstResponder()
     }
     
     func refreshTable() {
@@ -69,10 +101,6 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.reloadData()
 
     }
-    
-    /*func sortPosts() { // should probably be called sort and not filter
-        followedPosts.sortInPlace() { $0.date!.compare($1.date!) == NSComparisonResult.OrderedDescending }
-    }*/
 
     func newPostTapped() {
         let npvc = NewPostViewController()
@@ -80,9 +108,10 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print(followedPosts.count)
-        //print(allPosts.count)
-        //return followedPosts.count
+        if searchController.active {
+            return filteredPosts.count
+        }
+        
         return allPosts.count
     }
     
@@ -93,7 +122,7 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         if post.body?.characters.count > 100 {
             length = 110
         }
-        else if post.body?.characters.count > 70 {
+        else if post.body?.characters.count > 60 {
             length = 100
         }
         else {
@@ -104,10 +133,17 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let post = allPosts[indexPath.row]
+        var post:Post
 
         //let post = followedPosts[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomTableViewCell") as! CustomTableViewCell
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            post = filteredPosts[indexPath.row]
+        }
+        else {
+            post = allPosts[indexPath.row]
+        }
         
         cell.profPicImageView!.image = post.poster?.profPic
         
@@ -125,13 +161,18 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         
         let currDateFormatter = NSDateFormatter()
         currDateFormatter.locale = NSLocale.currentLocale()
-        currDateFormatter.dateFormat = "MM/dd/yy"
+        currDateFormatter.dateFormat = "M/dd/yy"
         let currDate:String = currDateFormatter.stringFromDate(currentDate)
 
         let postDateFormatter = NSDateFormatter()
         postDateFormatter.locale = NSLocale.currentLocale()
-        postDateFormatter.dateFormat = "MM/dd/yy"
+        postDateFormatter.dateFormat = "M/dd/yy"
         let postDate:String = postDateFormatter.stringFromDate(post.date)
+        
+        if post.date.isLessThanDate(oneDayAgo) {
+            cell.dateLabel.text = currDate
+            return cell
+        }
         
         let postMinFormatter = NSDateFormatter()
         postMinFormatter.locale = NSLocale.currentLocale()
@@ -153,12 +194,7 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         currHourFormatter.dateFormat = "H"
         let currHour:Int = Int(currHourFormatter.stringFromDate(currentDate))!
         
-        if post.date.isLessThanDate(oneDayAgo) {
-            cell.dateLabel.text = currDate
-            return cell
-        }
-        
-        else if post.date.isGreaterThanDate(oneHourAgo) {
+        if post.date.isGreaterThanDate(oneHourAgo) {
             if postHour == currHour {
                 cell.dateLabel.text = String(currMin - postMin) + "m"
             }

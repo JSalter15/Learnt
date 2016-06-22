@@ -19,24 +19,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var myPosts:[Post] = []
     
+    var user:User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBarHidden = true
         
-        let user = UserController.sharedInstance.getLoggedInUser()
+        user = UserController.sharedInstance.getLoggedInUser()
         myPosts = (user?.posts)!
-        
-        profPicImageView = UIImageView(frame: CGRectMake(19, 27, 150, 150))
-        profPicImageView!.layer.masksToBounds = true
-        profPicImageView!.layer.cornerRadius = 8
-        profPicImageView?.contentMode = .ScaleToFill
-        profPicImageView!.image = user?.profPic
 
-        view.addSubview(profPicImageView!)
-
-        nameLabel.text = user?.email
-        usernameLabel.text = user?.username
-        
         self.tableView.registerNib(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
         
         tableView.delegate = self
@@ -44,13 +35,28 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewDidAppear(animated: Bool) {
-        let user = UserController.sharedInstance.getLoggedInUser()
+        user = UserController.sharedInstance.getLoggedInUser()
         print(user?.posts.count)
         myPosts = (user?.posts)!
         
+        profPicImageView = UIImageView(frame: CGRectMake(19, 27, 150, 150))
+        profPicImageView!.layer.masksToBounds = true
+        profPicImageView!.layer.cornerRadius = 8
+        profPicImageView?.contentMode = .ScaleToFill
+        profPicImageView!.image = user?.profPic
+        
+        view.addSubview(profPicImageView!)
+        
+        nameLabel.text = user?.name
+        usernameLabel.text = "@" + (user?.username)!
+        descriptionLabel.text = user?.descriptor
+        
+        tableView.reloadData()
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(myPosts.count)
         return myPosts.count
     }
     
@@ -60,10 +66,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomTableViewCell") as! CustomTableViewCell
         
         cell.profPic.image = post.poster?.profPic
-        cell.nameLabel.text = "Today @\((post.poster?.username)!) learned..."
+        cell.nameLabel.text = "Today I learned..."
         cell.bodyTextView.text = post.body
         
         return cell
+    }
+    
+    @IBAction func newPostTapped(sender: UIButton) {
+        let npvc = NewPostViewController()
+        presentViewController(npvc, animated: true, completion: nil)
     }
     
     @IBAction func settingsTapped(sender: UIButton) {

@@ -41,7 +41,7 @@
                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxp-XE-SRy">
-                        <rect key="frame" x="248" y="8" width="64" height="21"/>
+                        <rect key="frame" x="248" y="5" width="64" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="64" id="IAB-EF-CEL"/>
                             <constraint firstAttribute="height" constant="21" id="n0l-vQ-vs7"/>
@@ -53,7 +53,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="Xxp-XE-SRy" secondAttribute="trailing" id="GFU-0b-5GD"/>
-                    <constraint firstAttribute="topMargin" secondItem="Xxp-XE-SRy" secondAttribute="top" id="M2I-Rw-04b"/>
+                    <constraint firstAttribute="topMargin" secondItem="Xxp-XE-SRy" secondAttribute="top" constant="3" id="M2I-Rw-04b"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PVa-XM-c78" secondAttribute="trailing" id="MqL-fn-6MF"/>
                     <constraint firstItem="xeD-IE-3z0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="40" id="PM4-EJ-rpm"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xeD-IE-3z0" secondAttribute="trailing" id="aBB-xe-slq"/>

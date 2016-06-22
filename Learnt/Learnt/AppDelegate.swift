@@ -44,10 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         profileViewController = ProfileViewController()
         profileNavController = UINavigationController(rootViewController: profileViewController!)
 
-        tabController?.viewControllers = [newsfeedNavController!, searchNavController!, profileNavController!]
+        tabController?.viewControllers = [newsfeedNavController!, profileNavController!]
         
         newsfeedViewController?.tabBarItem = UITabBarItem(title: "Newsfeed", image: UIImage(named: "home"), tag: 0)
-        searchViewController?.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
+        //searchViewController?.tabBarItem = UITabBarItem(title: "Search", image: UIImage(named: "search"), tag: 1)
         profileViewController?.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), tag: 2)
 
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

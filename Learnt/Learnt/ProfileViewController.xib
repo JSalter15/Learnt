@@ -53,38 +53,58 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7RW-AG-urK">
-                    <rect key="frame" x="561" y="27" width="25" height="25"/>
+                    <rect key="frame" x="561" y="62" width="25" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="GhH-Q1-his"/>
-                        <constraint firstAttribute="height" constant="25" id="QKq-ov-gCX"/>
+                        <constraint firstAttribute="width" constant="25" id="Vl8-tY-eBe"/>
+                        <constraint firstAttribute="height" constant="25" id="xPL-w0-GFt"/>
                     </constraints>
                     <state key="normal" image="settings"/>
                     <connections>
                         <action selector="settingsTapped:" destination="-1" eventType="touchUpInside" id="XTp-bO-Yub"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7I-Wl-q3G">
+                    <rect key="frame" x="561" y="29" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="EUc-1H-Uuc"/>
+                        <constraint firstAttribute="width" constant="25" id="oUK-Nr-uHq"/>
+                    </constraints>
+                    <state key="normal" image="new_post"/>
+                    <connections>
+                        <action selector="newPostTapped:" destination="-1" eventType="touchUpInside" id="hDT-bZ-c3W"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="7RW-AG-urK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="E1k-Pn-bao"/>
-                <constraint firstAttribute="trailing" secondItem="7RW-AG-urK" secondAttribute="trailing" constant="14" id="Gd7-Qj-Hge"/>
+                <constraint firstItem="g7I-Wl-q3G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="1bn-IF-Ba3"/>
                 <constraint firstItem="l7V-QW-QDj" firstAttribute="top" secondItem="brb-xY-ojf" secondAttribute="bottom" constant="15" id="MHe-rg-mym"/>
                 <constraint firstItem="MLA-bD-cNE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="177" id="O2M-YG-gDu"/>
                 <constraint firstItem="uPI-3W-2ZV" firstAttribute="top" secondItem="MLA-bD-cNE" secondAttribute="bottom" constant="1" id="OVq-np-E24"/>
                 <constraint firstAttribute="trailing" secondItem="l7V-QW-QDj" secondAttribute="trailing" id="QcF-h2-49D"/>
+                <constraint firstItem="7RW-AG-urK" firstAttribute="top" secondItem="g7I-Wl-q3G" secondAttribute="bottom" constant="8" id="QtT-kl-JQU"/>
                 <constraint firstAttribute="trailing" secondItem="brb-xY-ojf" secondAttribute="trailing" constant="13.5" id="RUd-1J-Og3"/>
                 <constraint firstItem="l7V-QW-QDj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tjh-bc-AAz"/>
                 <constraint firstItem="brb-xY-ojf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="UsF-C0-km6"/>
                 <constraint firstItem="brb-xY-ojf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="185" id="ZCG-eZ-gRI"/>
+                <constraint firstAttribute="trailing" secondItem="g7I-Wl-q3G" secondAttribute="trailing" constant="14" id="ZIf-l2-LuL"/>
                 <constraint firstAttribute="bottom" secondItem="l7V-QW-QDj" secondAttribute="bottom" id="Zsb-Qp-hxz"/>
                 <constraint firstAttribute="trailing" secondItem="MLA-bD-cNE" secondAttribute="trailing" constant="67.5" id="u31-Ac-bKZ"/>
                 <constraint firstItem="uPI-3W-2ZV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="177" id="uAE-SP-mij"/>
                 <constraint firstItem="MLA-bD-cNE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27.5" id="vpE-kR-JQF"/>
+                <constraint firstAttribute="trailing" secondItem="7RW-AG-urK" secondAttribute="trailing" constant="14" id="w05-gB-BO1"/>
                 <constraint firstAttribute="trailing" secondItem="uPI-3W-2ZV" secondAttribute="trailing" constant="47" id="x4k-1t-403"/>
             </constraints>
         </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="byV-ti-FoE">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="476" y="98"/>
+        </button>
     </objects>
     <resources>
+        <image name="new_post" width="29" height="29"/>
         <image name="settings" width="29" height="29"/>
     </resources>
 </document>
