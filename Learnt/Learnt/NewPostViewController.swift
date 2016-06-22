@@ -15,9 +15,8 @@ class NewPostViewController: UIViewController, UIGestureRecognizerDelegate, UITe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let user = UserController.sharedInstance.getLoggedInUser()
-        header.text = "Today @\((user?.username)!) learned..."
+        header.text = "Today I learned..."
+        header.textColor = UIColor.orangeColor()
         
         textView.delegate = self
         
@@ -72,6 +71,8 @@ class NewPostViewController: UIViewController, UIGestureRecognizerDelegate, UITe
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
 
     @IBAction func closeButtonTapped(sender: UIButton) {
         textView.resignFirstResponder()

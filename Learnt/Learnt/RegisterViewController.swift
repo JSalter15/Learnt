@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class RegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var emailField: EmailValidatedTextField!
     @IBOutlet weak var usernameField: UITextField!
@@ -22,6 +22,9 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        emailField.delegate = self
+        usernameField.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -72,6 +75,15 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
             }
         }
 
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == " " {
+            return false
+        }
+        
+        
+        return true
     }
     
     override func didReceiveMemoryWarning() {

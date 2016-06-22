@@ -20,7 +20,6 @@
             <connections>
                 <outlet property="descriptionLabel" destination="brb-xY-ojf" id="JC2-hj-4ou"/>
                 <outlet property="nameLabel" destination="MLA-bD-cNE" id="Ie3-9o-Xkq"/>
-                <outlet property="profPic" destination="zk1-vT-Eri" id="AED-mu-zXf"/>
                 <outlet property="tableView" destination="l7V-QW-QDj" id="JpC-8R-gJD"/>
                 <outlet property="usernameLabel" destination="uPI-3W-2ZV" id="mZQ-qQ-b6k"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,29 +30,22 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-vT-Eri">
-                    <rect key="frame" x="19" y="27" width="150" height="150"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="150" id="62I-cb-eDJ"/>
-                        <constraint firstAttribute="width" constant="150" id="Mep-aJ-WsM"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLA-bD-cNE">
                     <rect key="frame" x="177" y="27.5" width="355.5" height="19.5"/>
                     <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPI-3W-2ZV">
-                    <rect key="frame" x="177" y="48" width="355.5" height="13.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPI-3W-2ZV">
+                    <rect key="frame" x="177" y="48" width="376" height="13.5"/>
                     <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brb-xY-ojf">
                     <rect key="frame" x="19" y="185" width="567.5" height="16"/>
                     <fontDescription key="fontDescription" name="Ubuntu-Italic" family="Ubuntu" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l7V-QW-QDj">
@@ -74,28 +66,25 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="zk1-vT-Eri" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="48p-fc-Eh0"/>
                 <constraint firstItem="7RW-AG-urK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="E1k-Pn-bao"/>
                 <constraint firstAttribute="trailing" secondItem="7RW-AG-urK" secondAttribute="trailing" constant="14" id="Gd7-Qj-Hge"/>
-                <constraint firstItem="zk1-vT-Eri" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="HU8-2g-pYN"/>
                 <constraint firstItem="l7V-QW-QDj" firstAttribute="top" secondItem="brb-xY-ojf" secondAttribute="bottom" constant="15" id="MHe-rg-mym"/>
+                <constraint firstItem="MLA-bD-cNE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="177" id="O2M-YG-gDu"/>
                 <constraint firstItem="uPI-3W-2ZV" firstAttribute="top" secondItem="MLA-bD-cNE" secondAttribute="bottom" constant="1" id="OVq-np-E24"/>
-                <constraint firstItem="uPI-3W-2ZV" firstAttribute="leading" secondItem="zk1-vT-Eri" secondAttribute="trailing" constant="8" id="Ppb-lo-GIE"/>
                 <constraint firstAttribute="trailing" secondItem="l7V-QW-QDj" secondAttribute="trailing" id="QcF-h2-49D"/>
                 <constraint firstAttribute="trailing" secondItem="brb-xY-ojf" secondAttribute="trailing" constant="13.5" id="RUd-1J-Og3"/>
                 <constraint firstItem="l7V-QW-QDj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tjh-bc-AAz"/>
                 <constraint firstItem="brb-xY-ojf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="UsF-C0-km6"/>
                 <constraint firstItem="brb-xY-ojf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="185" id="ZCG-eZ-gRI"/>
                 <constraint firstAttribute="bottom" secondItem="l7V-QW-QDj" secondAttribute="bottom" id="Zsb-Qp-hxz"/>
-                <constraint firstItem="MLA-bD-cNE" firstAttribute="leading" secondItem="zk1-vT-Eri" secondAttribute="trailing" constant="8" id="mlZ-KV-Uuq"/>
                 <constraint firstAttribute="trailing" secondItem="MLA-bD-cNE" secondAttribute="trailing" constant="67.5" id="u31-Ac-bKZ"/>
+                <constraint firstItem="uPI-3W-2ZV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="177" id="uAE-SP-mij"/>
                 <constraint firstItem="MLA-bD-cNE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27.5" id="vpE-kR-JQF"/>
-                <constraint firstAttribute="trailing" secondItem="uPI-3W-2ZV" secondAttribute="trailing" constant="8" id="x4k-1t-403"/>
+                <constraint firstAttribute="trailing" secondItem="uPI-3W-2ZV" secondAttribute="trailing" constant="47" id="x4k-1t-403"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="defaultImage.png" width="480" height="480"/>
         <image name="settings" width="29" height="29"/>
     </resources>
 </document>

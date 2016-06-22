@@ -29,19 +29,12 @@ class PostController {
         PersistenceManager.saveNSArray(allPosts, fileName: "allPosts")
     }
     
-    func removePost(post:Post)
+    func removePost(index:Int)
     {
         getPosts()
         
-        // the index is found if the title and the date are the same. That's enough to know
-        if let index = allPosts.indexOf({$0.poster == post.poster && $0.date == post.date})
-        {
-            // remove the place
-            allPosts.removeAtIndex(index)
-            
-            // update the array
-            PersistenceManager.saveNSArray(allPosts, fileName: "allPosts")
-        }
+        allPosts.removeAtIndex(index)
+        PersistenceManager.saveNSArray(allPosts, fileName: "allPosts")
     }
     
     private func readPlacesFromMemory() {

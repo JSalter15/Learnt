@@ -10,11 +10,12 @@ import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
+    var profPicImageView:UIImageView?
     
     var myPosts:[Post] = []
     
@@ -25,8 +26,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let user = UserController.sharedInstance.getLoggedInUser()
         myPosts = (user?.posts)!
         
-        profPic.contentMode = .ScaleToFill
-        profPic.image = user?.profPic
+        profPicImageView = UIImageView(frame: CGRectMake(19, 27, 150, 150))
+        profPicImageView!.layer.masksToBounds = true
+        profPicImageView!.layer.cornerRadius = 8
+        profPicImageView?.contentMode = .ScaleToFill
+        profPicImageView!.image = user?.profPic
+
+        view.addSubview(profPicImageView!)
+
         nameLabel.text = user?.email
         usernameLabel.text = user?.username
         
@@ -41,11 +48,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         print(user?.posts.count)
         myPosts = (user?.posts)!
         
-        profPic.contentMode = .ScaleToFill
-        profPic.image = user?.profPic
-        nameLabel.text = user?.name
-        usernameLabel.text = "@" + (user?.username)!
-        descriptionLabel.text = user?.descriptor
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

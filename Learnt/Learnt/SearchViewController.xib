@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Learnt" customModuleProvider="target">
             <connections>
+                <outlet property="searchBar" destination="5In-VI-rBJ" id="7qJ-JX-C17"/>
+                <outlet property="searchDisplayController" destination="QNx-rW-xCi" id="U1v-PZ-fKm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +16,34 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" placeholder="search users or posts!" translatesAutoresizingMaskIntoConstraints="NO" id="5In-VI-rBJ">
+                    <rect key="frame" x="0.0" y="19" width="600" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <scopeButtonTitles>
+                        <string>Title</string>
+                        <string>Title</string>
+                    </scopeButtonTitles>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="4bi-Cq-8CB"/>
+                    </connections>
+                </searchBar>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="5In-VI-rBJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="19" id="2W4-pJ-RY0"/>
+                <constraint firstItem="5In-VI-rBJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ond-Qr-TBs"/>
+                <constraint firstAttribute="trailing" secondItem="5In-VI-rBJ" secondAttribute="trailing" id="sle-Ki-Xvg"/>
+            </constraints>
         </view>
+        <searchDisplayController id="QNx-rW-xCi">
+            <connections>
+                <outlet property="delegate" destination="-1" id="wMG-uG-TP8"/>
+                <outlet property="searchBar" destination="5In-VI-rBJ" id="Bv4-Bq-hQs"/>
+                <outlet property="searchContentsController" destination="-1" id="wY1-0m-4O6"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="exg-ao-xZq"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="vCa-d1-zCS"/>
+            </connections>
+        </searchDisplayController>
     </objects>
 </document>

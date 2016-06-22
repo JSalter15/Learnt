@@ -14,12 +14,18 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var trashButton: UIButton!
+    
+    var profPicImageView:UIImageView?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        profPic.contentMode = .ScaleToFill
+        profPicImageView = UIImageView(frame: CGRectMake(8, 8, 40, 40))
+        profPicImageView!.layer.masksToBounds = true
+        profPicImageView!.layer.cornerRadius = 6
+        profPicImageView?.contentMode = .ScaleToFill
+        self.addSubview(profPicImageView!)
+        
         // Initialization code
     }
 
