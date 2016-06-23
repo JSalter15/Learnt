@@ -72,7 +72,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let post1:Post = Post(poster: josh, body: "how to code.", date: NSDate(), favoriters: [], reposters: [])
         
         let julian:User = User(email: "Julian", password: "Julian", username: "JHulme", profPic: UIImage(named: "julian.jpg"), name: "Julian", descriptor: "Julian", posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
-        let post2:Post = Post(poster: julian, body: "how to teach delegates to his class.", date: NSDate(), favoriters: [], reposters: [])
+        let post2:Post = Post(poster: julian, body: "how to update my LinkedIn profile.", date: NSDate(), favoriters: [], reposters: [])
         
         let aaron:User = User(email: "Aaron", password: "Aaron", username: "AFuchs", profPic: UIImage(named: "aaron.jpg"), name: "Aaron", descriptor: "Aaron", posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
         let post3:Post = Post(poster: aaron, body: "how to give a bunch of college kids a chance to come to Cape Town for one hell of an epic summer!", date: NSDate(), favoriters: [], reposters: [])
@@ -99,8 +99,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         profPicImageView?.contentMode = .ScaleAspectFill
         profPicImageView!.image = user?.profPic
 
-        
-        
         view.addSubview(profPicImageView!)
         
         nameLabel.text = user?.name
