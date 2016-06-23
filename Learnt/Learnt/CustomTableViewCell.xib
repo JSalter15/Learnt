@@ -6,12 +6,12 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Ubuntu-B.ttf">
+            <string>Ubuntu-Bold</string>
+        </mutableArray>
         <mutableArray key="Ubuntu-L.ttf">
             <string>Ubuntu-Light</string>
             <string>Ubuntu-Light</string>
-        </mutableArray>
-        <mutableArray key="Ubuntu-R.ttf">
-            <string>Ubuntu</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -25,18 +25,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVa-XM-c78">
-                        <rect key="frame" x="53" y="5" width="259" height="21"/>
+                        <rect key="frame" x="63" y="5" width="249" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="VK5-Qt-8lf"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Body" translatesAutoresizingMaskIntoConstraints="NO" id="xeD-IE-3z0">
-                        <rect key="frame" x="48" y="24" width="264" height="81.5"/>
+                        <rect key="frame" x="58" y="24" width="254" height="81.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="14"/>
+                        <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                     </textView>
@@ -50,27 +50,44 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="567-Og-eWW">
+                        <rect key="frame" x="285" y="89" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="PNo-Kb-xyv"/>
+                            <constraint firstAttribute="height" constant="25" id="wpc-ni-FpQ"/>
+                        </constraints>
+                        <state key="normal" image="grayHeart.png"/>
+                        <connections>
+                            <action selector="favoriteTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gM4-xM-ICY"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="Xxp-XE-SRy" secondAttribute="trailing" id="GFU-0b-5GD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="567-Og-eWW" secondAttribute="trailing" constant="2" id="LoX-b2-IPn"/>
                     <constraint firstAttribute="topMargin" secondItem="Xxp-XE-SRy" secondAttribute="top" constant="3" id="M2I-Rw-04b"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PVa-XM-c78" secondAttribute="trailing" id="MqL-fn-6MF"/>
-                    <constraint firstItem="xeD-IE-3z0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="40" id="PM4-EJ-rpm"/>
+                    <constraint firstItem="xeD-IE-3z0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="50" id="PM4-EJ-rpm"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xeD-IE-3z0" secondAttribute="trailing" id="aBB-xe-slq"/>
-                    <constraint firstItem="PVa-XM-c78" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="45" id="aLA-2E-gcg"/>
+                    <constraint firstItem="PVa-XM-c78" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="55" id="aLA-2E-gcg"/>
                     <constraint firstAttribute="bottomMargin" secondItem="xeD-IE-3z0" secondAttribute="bottom" constant="11" id="nDs-nu-m3v"/>
                     <constraint firstAttribute="topMargin" secondItem="PVa-XM-c78" secondAttribute="top" constant="3" id="qfh-ty-8HF"/>
                     <constraint firstItem="xeD-IE-3z0" firstAttribute="top" secondItem="PVa-XM-c78" secondAttribute="bottom" constant="-2" id="qwa-4X-UKR"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xeD-IE-3z0" secondAttribute="trailing" id="rj9-4g-oXP"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="567-Og-eWW" secondAttribute="bottom" constant="2.5" id="roA-dM-tmG"/>
                 </constraints>
             </tableViewCellContentView>
             <accessibility key="accessibilityConfiguration" identifier="CustomTableViewCell"/>
             <connections>
                 <outlet property="bodyTextView" destination="xeD-IE-3z0" id="oqk-MQ-ZQ3"/>
                 <outlet property="dateLabel" destination="Xxp-XE-SRy" id="x4p-UU-ROo"/>
+                <outlet property="favoriteHeart" destination="567-Og-eWW" id="rFn-c2-v8q"/>
                 <outlet property="nameLabel" destination="PVa-XM-c78" id="YMf-zz-Aiw"/>
             </connections>
             <point key="canvasLocation" x="307" y="424.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="grayHeart.png" width="128" height="128"/>
+    </resources>
 </document>

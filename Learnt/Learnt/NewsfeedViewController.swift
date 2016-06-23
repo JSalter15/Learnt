@@ -122,11 +122,11 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         let post = allPosts[indexPath.row]
         var length = 0
         
-        if post.body?.characters.count > 100 {
-            length = 110
+        if post.body?.characters.count > 110 {
+            length = 140
         }
         else if post.body?.characters.count > 60 {
-            length = 100
+            length = 120
         }
         else {
             length = 70
