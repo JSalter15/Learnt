@@ -59,6 +59,7 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
         refreshControl.addTarget(self, action: #selector(self.refreshTable), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
+        
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
@@ -82,17 +83,7 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         let pvc = HelpPopUpViewController()
         pvc.modalPresentationStyle = .OverCurrentContext
         self.navigationController?.modalPresentationStyle = .OverCurrentContext
-//       pvc.modalPresentationStyle = .OverCurrentContext
-//        pvc.preferredContentSize = CGSizeMake(259, 364)
-        
-//        let popoverMenuViewController = pvc.popoverPresentationController
-//        popoverMenuViewController?.permittedArrowDirections = .Any
-//        popoverMenuViewController?.delegate = self
-//        popoverMenuViewController?.sourceView = sender
-//        popoverMenuViewController?.sourceRect = CGRect(x: 59, y: 118, width: 259, height: 364)
-        //presentViewController(pvc, animated: true, completion: nil)
         self.tabBarController?.presentViewController(pvc, animated: true, completion: nil)
-        //pvc.showInView(self.view, animated: true)
     }
     
     func searchTapped() {
@@ -157,6 +148,7 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
             post = allPosts[indexPath.row]
         }
         
+        cell.profPicImageView?.contentMode = .ScaleAspectFill
         cell.profPicImageView!.image = post.poster?.profPic
         
         if user?.email == post.poster?.email {

@@ -10,6 +10,8 @@
         </mutableArray>
         <mutableArray key="Ubuntu-R.ttf">
             <string>Ubuntu</string>
+            <string>Ubuntu</string>
+            <string>Ubuntu</string>
         </mutableArray>
         <mutableArray key="Ubuntu-RI.ttf">
             <string>Ubuntu-Italic</string>
@@ -19,8 +21,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Learnt" customModuleProvider="target">
             <connections>
                 <outlet property="descriptionLabel" destination="brb-xY-ojf" id="JC2-hj-4ou"/>
+                <outlet property="favoritesButton" destination="mhc-ee-ZBy" id="vZb-Nu-MJR"/>
                 <outlet property="nameLabel" destination="MLA-bD-cNE" id="Ie3-9o-Xkq"/>
                 <outlet property="newPostButton" destination="g7I-Wl-q3G" id="GwK-mJ-NE6"/>
+                <outlet property="outlineView" destination="GQt-47-lZT" id="QMS-aK-HNl"/>
+                <outlet property="postsButton" destination="PsC-MX-zKV" id="UX0-nF-GlQ"/>
                 <outlet property="tableView" destination="l7V-QW-QDj" id="JpC-8R-gJD"/>
                 <outlet property="usernameLabel" destination="uPI-3W-2ZV" id="mZQ-qQ-b6k"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -32,25 +37,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLA-bD-cNE">
-                    <rect key="frame" x="177" y="27.5" width="355.5" height="19.5"/>
-                    <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="17"/>
+                    <rect key="frame" x="177" y="27" width="356" height="23"/>
+                    <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="20"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPI-3W-2ZV">
-                    <rect key="frame" x="177" y="48" width="376" height="13.5"/>
-                    <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="12"/>
+                    <rect key="frame" x="177" y="51" width="376" height="16"/>
+                    <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brb-xY-ojf">
-                    <rect key="frame" x="19" y="185" width="567.5" height="16"/>
-                    <fontDescription key="fontDescription" name="Ubuntu-Italic" family="Ubuntu" pointSize="14"/>
+                    <rect key="frame" x="19" y="185" width="568" height="18"/>
+                    <fontDescription key="fontDescription" name="Ubuntu-Italic" family="Ubuntu" pointSize="16"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l7V-QW-QDj">
-                    <rect key="frame" x="0.0" y="216" width="600" height="384"/>
+                    <rect key="frame" x="0.0" y="256" width="600" height="344"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7RW-AG-urK">
@@ -75,26 +80,69 @@
                         <action selector="newPostTapped:" destination="-1" eventType="touchUpInside" id="hDT-bZ-c3W"/>
                     </connections>
                 </button>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQt-47-lZT">
+                    <rect key="frame" x="0.0" y="211" width="600" height="43"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsC-MX-zKV">
+                            <rect key="frame" x="72" y="7" width="118" height="29"/>
+                            <color key="backgroundColor" red="1" green="0.60283436079999997" blue="0.22902681159999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="118" id="1Ue-IN-nx6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="15"/>
+                            <state key="normal" title="Posts">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="postsTapped:" destination="-1" eventType="touchUpInside" id="g2X-Jz-aTp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhc-ee-ZBy">
+                            <rect key="frame" x="185" y="7" width="121" height="29"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="121" id="cfn-VR-CWN"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Ubuntu" family="Ubuntu" pointSize="15"/>
+                            <state key="normal" title="Favorites">
+                                <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="favoritesTapped:" destination="-1" eventType="touchUpInside" id="cpj-sf-C7x"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="mhc-ee-ZBy" firstAttribute="leading" secondItem="PsC-MX-zKV" secondAttribute="trailing" constant="-5" id="GKS-vB-dzF"/>
+                        <constraint firstItem="PsC-MX-zKV" firstAttribute="top" secondItem="GQt-47-lZT" secondAttribute="top" constant="7" id="pEE-HB-j3Y"/>
+                        <constraint firstItem="PsC-MX-zKV" firstAttribute="leading" secondItem="GQt-47-lZT" secondAttribute="leading" constant="72" id="qiq-o5-F6y"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="g7I-Wl-q3G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="1bn-IF-Ba3"/>
-                <constraint firstItem="l7V-QW-QDj" firstAttribute="top" secondItem="brb-xY-ojf" secondAttribute="bottom" constant="15" id="MHe-rg-mym"/>
+                <constraint firstItem="mhc-ee-ZBy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="218" id="JC2-53-gdX"/>
+                <constraint firstItem="l7V-QW-QDj" firstAttribute="top" secondItem="brb-xY-ojf" secondAttribute="bottom" constant="53" id="MHe-rg-mym"/>
+                <constraint firstItem="GQt-47-lZT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NDo-UI-T1l"/>
                 <constraint firstItem="MLA-bD-cNE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="177" id="O2M-YG-gDu"/>
                 <constraint firstItem="uPI-3W-2ZV" firstAttribute="top" secondItem="MLA-bD-cNE" secondAttribute="bottom" constant="1" id="OVq-np-E24"/>
                 <constraint firstAttribute="trailing" secondItem="l7V-QW-QDj" secondAttribute="trailing" id="QcF-h2-49D"/>
-                <constraint firstItem="7RW-AG-urK" firstAttribute="top" secondItem="g7I-Wl-q3G" secondAttribute="bottom" constant="8" id="QtT-kl-JQU"/>
                 <constraint firstAttribute="trailing" secondItem="brb-xY-ojf" secondAttribute="trailing" constant="13.5" id="RUd-1J-Og3"/>
                 <constraint firstItem="l7V-QW-QDj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tjh-bc-AAz"/>
                 <constraint firstItem="brb-xY-ojf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="UsF-C0-km6"/>
+                <constraint firstItem="7RW-AG-urK" firstAttribute="top" secondItem="g7I-Wl-q3G" secondAttribute="bottom" constant="8" symbolic="YES" id="Wwo-zq-3gZ"/>
                 <constraint firstItem="brb-xY-ojf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="185" id="ZCG-eZ-gRI"/>
                 <constraint firstAttribute="trailing" secondItem="g7I-Wl-q3G" secondAttribute="trailing" constant="14" id="ZIf-l2-LuL"/>
                 <constraint firstAttribute="bottom" secondItem="l7V-QW-QDj" secondAttribute="bottom" id="Zsb-Qp-hxz"/>
+                <constraint firstItem="g7I-Wl-q3G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="ds7-fE-M3I"/>
+                <constraint firstItem="l7V-QW-QDj" firstAttribute="top" secondItem="GQt-47-lZT" secondAttribute="bottom" constant="2" id="eJy-0M-9uM"/>
+                <constraint firstItem="GQt-47-lZT" firstAttribute="top" secondItem="brb-xY-ojf" secondAttribute="bottom" constant="8" id="j0p-fD-Q0H"/>
                 <constraint firstAttribute="trailing" secondItem="MLA-bD-cNE" secondAttribute="trailing" constant="67.5" id="u31-Ac-bKZ"/>
                 <constraint firstItem="uPI-3W-2ZV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="177" id="uAE-SP-mij"/>
                 <constraint firstItem="MLA-bD-cNE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27.5" id="vpE-kR-JQF"/>
                 <constraint firstAttribute="trailing" secondItem="7RW-AG-urK" secondAttribute="trailing" constant="14" id="w05-gB-BO1"/>
                 <constraint firstAttribute="trailing" secondItem="uPI-3W-2ZV" secondAttribute="trailing" constant="47" id="x4k-1t-403"/>
+                <constraint firstAttribute="trailing" secondItem="GQt-47-lZT" secondAttribute="trailing" id="y1N-E6-JHG"/>
             </constraints>
         </view>
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="byV-ti-FoE">

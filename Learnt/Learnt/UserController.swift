@@ -118,11 +118,20 @@ class UserController {
     }
     
     func getLoggedInUser() -> User? {
-        if let user = PersistenceManager.loadObject("loggedInUser") as? User {
-            if ((user.email == noUser.email) && (user.password == noUser.password)) {
+        if let userFromLoginCheck = PersistenceManager.loadObject("loggedInUser") as? User {
+            if ((userFromLoginCheck.email == noUser.email) && (userFromLoginCheck.password == noUser.password)) {
                 return nil
             }
-            return user
+                        
+            if let users = PersistenceManager.loadNSArray("usersArray") as? [User] {
+                for user in users   {
+                    if(user.email == userFromLoginCheck.email)  {
+                        return user
+                    }
+                }
+                return nil
+            }
+            
         }
         
         return nil
@@ -130,13 +139,19 @@ class UserController {
     
     func newPostForUser(post:Post) {
         let currentUser = getLoggedInUser()
+        getUsers()
+//        if let index = allUsers.indexOf(post.poster!)
         
-//        if let index = allUsers.indexOf({$0.email == currentUser?.email})
-//        {
-//            allUsers[index].posts.append(post)
-//            
-//            // update the array
-//            PersistenceManager.saveNSArray(allUsers, fileName: "allUsers")
-//        }
+        for (inx, user) in allUsers.enumerate()    {
+            if (user.email == post.poster?.email)   {
+                user.posts.append(post)
+                allUsers.removeAtIndex(inx)
+                allUsers.append(user)
+            }
+        }
+            
+        // update the array
+        PersistenceManager.saveNSArray(allUsers, fileName: "allUsers")
+        
     }
 }

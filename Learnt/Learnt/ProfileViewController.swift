@@ -15,6 +15,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var newPostButton: UIButton!
+    @IBOutlet weak var postsButton: UIButton!
+    @IBOutlet weak var favoritesButton: UIButton!
+    @IBOutlet weak var outlineView: UIView!
     
     var profPicImageView:UIImageView?
     
@@ -22,19 +25,43 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var user:User?
     
+    var refreshControl: UIRefreshControl!
+    
+    var onPosts:Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBarHidden = true
         
         user = UserController.sharedInstance.getLoggedInUser()
-        myPosts = (user?.getPosts())!
+        let allPosts = PostController.sharedInstance.getPosts()
+        myPosts = []
+        for post in allPosts {
+            if post.poster!.email == user?.email {
+                myPosts.append(post)
+            }
+        }
         
         self.tableView.registerNib(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+
+        favoritesButton.backgroundColor = UIColor.whiteColor()
+        favoritesButton.layer.borderWidth = 1
+        favoritesButton.layer.borderColor = UIColor.orangeColor().CGColor
+        favoritesButton.layer.cornerRadius = 5
+        favoritesButton.titleLabel?.textColor = UIColor.orangeColor()
         
-//        let orangeBorder = UIView(frame: CGRectMake(16, 26, 152, 152))
-//        profPicImageView!.layer.masksToBounds = true
-//        profPicImageView!.layer.cornerRadius = 8
-//        profPicImageView?.contentMode = .ScaleToFill
+        postsButton.layer.cornerRadius = 5
+        postsButton.backgroundColor = UIColor.orangeColor()
+        postsButton.layer.borderWidth = 1
+        postsButton.layer.borderColor = UIColor.orangeColor().CGColor
+        
+        outlineView.layer.borderWidth = 0.5
+        outlineView.layer.borderColor = UIColor.grayColor().CGColor
+
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Release to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refreshTable), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -42,13 +69,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidAppear(animated: Bool) {
         user = UserController.sharedInstance.getLoggedInUser()
-        print(user?.posts.count)
-        myPosts = (user?.getPosts())!
+        let allPosts = PostController.sharedInstance.getPosts()
+        myPosts = []
+        for post in allPosts {
+            if post.poster!.email == user?.email {
+                myPosts.append(post)
+            }
+        }
         
         profPicImageView = UIImageView(frame: CGRectMake(19, 27, 150, 150))
         profPicImageView!.layer.masksToBounds = true
         profPicImageView!.layer.cornerRadius = 8
-        profPicImageView?.contentMode = .ScaleToFill
+        profPicImageView?.contentMode = .ScaleAspectFill
         profPicImageView!.image = user?.profPic
 
         
@@ -56,11 +88,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         view.addSubview(profPicImageView!)
         
         nameLabel.text = user?.name
+        nameLabel.textColor = UIColor.orangeColor()
         usernameLabel.text = "@" + (user?.username)!
+        usernameLabel.textColor = UIColor.orangeColor()
         descriptionLabel.text = user?.descriptor
+        descriptionLabel.textColor = UIColor.orangeColor()
         
         tableView.reloadData()
 
+    }
+    
+    func refreshTable() {
+        self.tableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,16 +108,155 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return myPosts.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let post = myPosts[indexPath.row]
+        var length = 0
         
+        if post.body?.characters.count > 100 {
+            length = 110
+        }
+        else if post.body?.characters.count > 60 {
+            length = 100
+        }
+        else {
+            length = 70
+        }
+        
+        return CGFloat(length)
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let post:Post = myPosts[indexPath.row]
+        
+        //let post = followedPosts[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomTableViewCell") as! CustomTableViewCell
         
-        cell.profPic.image = post.poster?.profPic
-        cell.nameLabel.text = "Today I learned..."
+        cell.profPicImageView?.contentMode = .ScaleAspectFill
+        cell.profPicImageView!.image = user?.profPic
+        cell.nameLabel.text = "⭐️Today I learned..."
         cell.bodyTextView.text = post.body
         
-        return cell
+        let currentDate:NSDate = NSDate()
+        let oneDayAgo = currentDate.addDays(-1)
+        let oneHourAgo = currentDate.addHours(-1)
+        
+        let currDateFormatter = NSDateFormatter()
+        currDateFormatter.locale = NSLocale.currentLocale()
+        currDateFormatter.dateFormat = "M/dd/yy"
+        let currDate:String = currDateFormatter.stringFromDate(currentDate)
+        
+        let postDateFormatter = NSDateFormatter()
+        postDateFormatter.locale = NSLocale.currentLocale()
+        postDateFormatter.dateFormat = "M/dd/yy"
+        let postDate:String = postDateFormatter.stringFromDate(post.date)
+        
+        if post.date.isLessThanDate(oneDayAgo) {
+            cell.dateLabel.text = currDate
+            return cell
+        }
+        
+        let postMinFormatter = NSDateFormatter()
+        postMinFormatter.locale = NSLocale.currentLocale()
+        postMinFormatter.dateFormat = "m"
+        let postMin:Int = Int(postMinFormatter.stringFromDate(post.date))!
+        
+        let currMinFormatter = NSDateFormatter()
+        currMinFormatter.locale = NSLocale.currentLocale()
+        currMinFormatter.dateFormat = "m"
+        let currMin:Int = Int(currMinFormatter.stringFromDate(currentDate))!
+        
+        let postHourFormatter = NSDateFormatter()
+        postHourFormatter.locale = NSLocale.currentLocale()
+        postHourFormatter.dateFormat = "H"
+        let postHour:Int = Int(postHourFormatter.stringFromDate(post.date))!
+        
+        let currHourFormatter = NSDateFormatter()
+        currHourFormatter.locale = NSLocale.currentLocale()
+        currHourFormatter.dateFormat = "H"
+        let currHour:Int = Int(currHourFormatter.stringFromDate(currentDate))!
+        
+        if post.date.isGreaterThanDate(oneHourAgo) {
+            if postHour == currHour {
+                cell.dateLabel.text = String(currMin - postMin) + "m"
+            }
+            else {
+                cell.dateLabel.text = String(currMin + (60 - postMin)) + "m"
+            }
+            return cell
+        }
+            
+        else {
+            if postDate == currDate {
+                cell.dateLabel.text = String(currHour - postHour) + "h"
+            }
+            else {
+                cell.dateLabel.text = String(currHour + (24 - postHour)) + "h"
+            }
+            return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        // Delete action
+        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+            print("Delete tapped")
+            
+            let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .ActionSheet)
+            
+            let okAction = UIAlertAction(title: "Okay", style: .Default, handler: {(okAction) -> Void in
+                PostController.sharedInstance.removePost(indexPath.row)
+                self.myPosts.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            })
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {action in
+                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
+            })
+            
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        delete.backgroundColor = UIColor.redColor()
+        
+        return [delete]
+    }
+
+    @IBAction func postsTapped(sender: UIButton) {
+        if !onPosts {
+            onPosts = true
+            
+            postsButton.backgroundColor = UIColor.orangeColor()
+            postsButton.titleLabel?.textColor = UIColor.whiteColor()
+            postsButton.layer.borderColor = UIColor.orangeColor().CGColor
+            
+            favoritesButton.backgroundColor = UIColor.whiteColor()
+            favoritesButton.layer.borderColor = UIColor.orangeColor().CGColor
+            favoritesButton.setTitleColor(UIColor.orangeColor(), forState: .Normal)
+        }
+    }
+    
+    @IBAction func favoritesTapped(sender: UIButton) {
+        if onPosts {
+            onPosts = false
+            
+            favoritesButton.backgroundColor = UIColor.orangeColor()
+            favoritesButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            favoritesButton.layer.borderColor = UIColor.orangeColor().CGColor
+            
+            postsButton.backgroundColor = UIColor.whiteColor()
+            postsButton.titleLabel?.textColor = UIColor.orangeColor()
+            postsButton.layer.borderColor = UIColor.orangeColor().CGColor
+        }
     }
     
     @IBAction func newPostTapped(sender: UIButton) {
