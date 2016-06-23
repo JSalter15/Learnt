@@ -50,6 +50,10 @@
 		32A9A98B1D1C701C00441D7C /* blackHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A9A98A1D1C701C00441D7C /* blackHeart.png */; };
 		32A9A98E1D1C74FE00441D7C /* orangeHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A9A98C1D1C74FE00441D7C /* orangeHeart.png */; };
 		32A9A98F1D1C74FE00441D7C /* grayHeart.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A9A98D1D1C74FE00441D7C /* grayHeart.png */; };
+		32A9A9911D1C870300441D7C /* josh.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32A9A9901D1C870300441D7C /* josh.jpg */; };
+		32A9A9931D1C879E00441D7C /* julian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32A9A9921D1C879E00441D7C /* julian.jpg */; };
+		32A9A9951D1C88E700441D7C /* aaron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32A9A9941D1C88E700441D7C /* aaron.jpg */; };
+		32A9A9971D1C945700441D7C /* ale.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 32A9A9961D1C945700441D7C /* ale.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +102,10 @@
 		32A9A98A1D1C701C00441D7C /* blackHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackHeart.png; sourceTree = "<group>"; };
 		32A9A98C1D1C74FE00441D7C /* orangeHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangeHeart.png; sourceTree = "<group>"; };
 		32A9A98D1D1C74FE00441D7C /* grayHeart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayHeart.png; sourceTree = "<group>"; };
+		32A9A9901D1C870300441D7C /* josh.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = josh.jpg; sourceTree = "<group>"; };
+		32A9A9921D1C879E00441D7C /* julian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = julian.jpg; sourceTree = "<group>"; };
+		32A9A9941D1C88E700441D7C /* aaron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aaron.jpg; sourceTree = "<group>"; };
+		32A9A9961D1C945700441D7C /* ale.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ale.jpg; sourceTree = "<group>"; };
 		D642C28E9B09F34857C89F74 /* Pods_Learnt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learnt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E581C16BE0E456D5025409 /* Pods-Learnt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learnt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Learnt/Pods-Learnt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +190,10 @@
 		328320821D1854E8008A66BC /* Fonts/Images */ = {
 			isa = PBXGroup;
 			children = (
+				32A9A9961D1C945700441D7C /* ale.jpg */,
+				32A9A9941D1C88E700441D7C /* aaron.jpg */,
+				32A9A9901D1C870300441D7C /* josh.jpg */,
+				32A9A9921D1C879E00441D7C /* julian.jpg */,
 				32A9A98C1D1C74FE00441D7C /* orangeHeart.png */,
 				32A9A98D1D1C74FE00441D7C /* grayHeart.png */,
 				32A9A98A1D1C701C00441D7C /* blackHeart.png */,
@@ -313,9 +325,11 @@
 				328320AB1D1880C0008A66BC /* RegisterViewController.xib in Resources */,
 				328320931D1854FF008A66BC /* Ubuntu-M.ttf in Resources */,
 				328320811D18508B008A66BC /* NewPostViewController.xib in Resources */,
+				32A9A9931D1C879E00441D7C /* julian.jpg in Resources */,
 				328320681D181AF8008A66BC /* NewsfeedViewController.xib in Resources */,
 				3283208D1D1854FF008A66BC /* UBUNTU FONT LICENCE.txt in Resources */,
 				328320741D181D4F008A66BC /* defaultImage.png in Resources */,
+				32A9A9971D1C945700441D7C /* ale.jpg in Resources */,
 				328320961D1854FF008A66BC /* Ubuntu-RI.ttf in Resources */,
 				328320941D1854FF008A66BC /* Ubuntu-MI.ttf in Resources */,
 				32A9A98F1D1C74FE00441D7C /* grayHeart.png in Resources */,
@@ -328,7 +342,9 @@
 				3283208F1D1854FF008A66BC /* Ubuntu-BI.ttf in Resources */,
 				3283208E1D1854FF008A66BC /* Ubuntu-B.ttf in Resources */,
 				32A9A98B1D1C701C00441D7C /* blackHeart.png in Resources */,
+				32A9A9911D1C870300441D7C /* josh.jpg in Resources */,
 				32A9A98E1D1C74FE00441D7C /* orangeHeart.png in Resources */,
+				32A9A9951D1C88E700441D7C /* aaron.jpg in Resources */,
 				3283209E1D1871AF008A66BC /* CustomTableViewCell.xib in Resources */,
 				328320A31D1880A6008A66BC /* LandingScreenViewController.xib in Resources */,
 				328320921D1854FF008A66BC /* Ubuntu-LI.ttf in Resources */,

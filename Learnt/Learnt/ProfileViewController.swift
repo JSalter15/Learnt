@@ -22,12 +22,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     var profPicImageView:UIImageView?
     
     var myPosts:[Post] = []
+    var favoritedPosts:[Post] = []
     
     var user:User?
     
     var refreshControl: UIRefreshControl!
     
     var onPosts:Bool = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +67,20 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let josh:User = User(email: "Josh", password: "Josh", username: "JBroomberg", profPic: UIImage(named: "josh.jpg"), name: "Josh", descriptor: "Josh", posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
+        let post1:Post = Post(poster: josh, body: "how to code.", date: NSDate(), favoriters: [], reposters: [])
+        
+        let julian:User = User(email: "Julian", password: "Julian", username: "JHulme", profPic: UIImage(named: "julian.jpg"), name: "Julian", descriptor: "Julian", posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
+        let post2:Post = Post(poster: julian, body: "how to teach delegates to his class.", date: NSDate(), favoriters: [], reposters: [])
+        
+        let aaron:User = User(email: "Aaron", password: "Aaron", username: "AFuchs", profPic: UIImage(named: "aaron.jpg"), name: "Aaron", descriptor: "Aaron", posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
+        let post3:Post = Post(poster: aaron, body: "how to give a bunch of college kids a chance to come to Cape Town for one hell of an epic summer!", date: NSDate(), favoriters: [], reposters: [])
+        
+        let ale:User = User(email: "Ale", password: "Ale", username: "Ale", profPic: UIImage(named: "ale.jpg"), name: "Ale", descriptor: "Ale", posts: [], followerList: [], followingList: [], favoritedList: [], repostList: [])
+        let post4:Post = Post(poster: ale, body: "how to make a BoardView", date: NSDate(), favoriters: [], reposters: [])
+        
+        favoritedPosts = [post1, post2, post3, post4]
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -104,37 +120,70 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(myPosts.count)
-        return myPosts.count
+        if onPosts {
+            return myPosts.count
+        }
+        else {
+            return favoritedPosts.count
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let post = myPosts[indexPath.row]
+        var post:Post
+        if onPosts {
+            post = myPosts[indexPath.row]
+        }
+        else {
+            post = favoritedPosts[indexPath.row]
+        }
+        
         var length = 0
         
-        if post.body?.characters.count > 100 {
-            length = 110
+        if post.body?.characters.count > 110 {
+            length = 140
         }
         else if post.body?.characters.count > 60 {
+            length = 120
+        }
+        else if post.body?.characters.count > 36 {
             length = 100
         }
         else {
-            length = 70
+            length = 75
         }
         
         return CGFloat(length)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let post:Post = myPosts[indexPath.row]
+        var post:Post
+        if onPosts {
+            post = myPosts[indexPath.row]
+        }
+        
+        else {
+            post = favoritedPosts[indexPath.row]
+        }
         
         //let post = followedPosts[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("CustomTableViewCell") as! CustomTableViewCell
         
         cell.profPicImageView?.contentMode = .ScaleAspectFill
-        cell.profPicImageView!.image = user?.profPic
-        cell.nameLabel.text = "⭐️Today I learned..."
         cell.bodyTextView.text = post.body
+        
+        if onPosts {
+            cell.profPicImageView!.image = user?.profPic
+            cell.nameLabel.text = "⭐️Today I learned..."
+            cell.favoriteHeart.setImage(UIImage(named: "grayHeart.png"), forState: .Normal)
+        }
+        else {
+            cell.profPicImageView!.image = post.poster?.profPic
+            cell.nameLabel.text = "Today @\((post.poster?.username)!) learned..."
+            cell.favoriteHeart.setImage(UIImage(named: "orangeHeart.png"), forState: .Normal)
+            cell.dateLabel.text = "6/23/16"
+            return cell
+        }
+        
         
         let currentDate:NSDate = NSDate()
         let oneDayAgo = currentDate.addDays(-1)
@@ -201,7 +250,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        if onPosts {
+            return true
+        }
+        else {
+            return false
+        }
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -242,6 +296,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             favoritesButton.backgroundColor = UIColor.whiteColor()
             favoritesButton.layer.borderColor = UIColor.orangeColor().CGColor
             favoritesButton.setTitleColor(UIColor.orangeColor(), forState: .Normal)
+            
+            tableView.reloadData()
         }
     }
     
@@ -256,6 +312,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             postsButton.backgroundColor = UIColor.whiteColor()
             postsButton.titleLabel?.textColor = UIColor.orangeColor()
             postsButton.layer.borderColor = UIColor.orangeColor().CGColor
+            
+            tableView.reloadData()
         }
     }
     

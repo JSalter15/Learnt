@@ -120,6 +120,7 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let post = allPosts[indexPath.row]
+        
         var length = 0
         
         if post.body?.characters.count > 110 {
@@ -128,10 +129,12 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         else if post.body?.characters.count > 60 {
             length = 120
         }
-        else {
-            length = 70
+        else if post.body?.characters.count > 30 {
+            length = 100
         }
-
+        else {
+            length = 75
+        }
         return CGFloat(length)
     }
     
