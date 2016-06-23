@@ -20,6 +20,7 @@
             <connections>
                 <outlet property="descriptionLabel" destination="brb-xY-ojf" id="JC2-hj-4ou"/>
                 <outlet property="nameLabel" destination="MLA-bD-cNE" id="Ie3-9o-Xkq"/>
+                <outlet property="newPostButton" destination="g7I-Wl-q3G" id="GwK-mJ-NE6"/>
                 <outlet property="tableView" destination="l7V-QW-QDj" id="JpC-8R-gJD"/>
                 <outlet property="usernameLabel" destination="uPI-3W-2ZV" id="mZQ-qQ-b6k"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

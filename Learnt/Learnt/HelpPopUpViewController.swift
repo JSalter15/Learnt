@@ -13,7 +13,7 @@ class HelpPopUpViewController: UIViewController {
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var postButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,43 +25,28 @@ class HelpPopUpViewController: UIViewController {
         self.popUpView.layer.shadowOpacity = 0.8
         self.popUpView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         
-
+        postButton.backgroundColor = UIColor.whiteColor()
+        postButton.layer.borderWidth = 1
+        postButton.layer.borderColor = UIColor.whiteColor().CGColor
+        postButton.layer.cornerRadius = 5
+        
         // Do any additional setup after loading the view.
     }
 
-    func showInView(aView: UIView!, animated: Bool)
-    {
-        aView.addSubview(self.view)
-        if animated {
-            self.showAnimate()
-        }
-    }
-    
-    func showAnimate()
-    {
-        self.view.transform = CGAffineTransformMakeScale(1.3, 1.3)
-        self.view.alpha = 0.0;
-        UIView.animateWithDuration(0.25, animations: {
-            self.view.alpha = 1.0
-            self.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
-        })
-    }
-    
-    func removeAnimate()
-    {
-        UIView.animateWithDuration(0.25, animations: {
-            self.view.transform = CGAffineTransformMakeScale(1.3, 1.3)
-            self.view.alpha = 0.0;
-            }, completion:{(finished : Bool)  in
-                if (finished)
-                {
-                    self.view.removeFromSuperview()
-                }
-        })
-    }
-    
-    @IBAction func closeButtonTapped(sender: UIButton) {
-        self.removeAnimate()
+    @IBAction func closeTapped(sender: UIButton) {
+        print("hi")
+        dismissViewControllerAnimated(true, completion: nil)
+        
+//        UIView.animateWithDuration(0.25, animations: {
+//            self.view.transform = CGAffineTransformMakeScale(1.3, 1.3)
+//            self.view.alpha = 0.0;
+//            }, completion:{(finished : Bool)  in
+//                if (finished)
+//                {
+//                    //self.dismissViewControllerAnimated(true, completion: nil)
+//                    self.view.removeFromSuperview()
+//                }
+//        })
     }
     
     override func didReceiveMemoryWarning() {

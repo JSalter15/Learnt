@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var newPostButton: UIButton!
     
     var profPicImageView:UIImageView?
     
@@ -26,9 +27,14 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         navigationController?.navigationBarHidden = true
         
         user = UserController.sharedInstance.getLoggedInUser()
-        myPosts = (user?.posts)!
-
+        myPosts = (user?.getPosts())!
+        
         self.tableView.registerNib(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "CustomTableViewCell")
+        
+//        let orangeBorder = UIView(frame: CGRectMake(16, 26, 152, 152))
+//        profPicImageView!.layer.masksToBounds = true
+//        profPicImageView!.layer.cornerRadius = 8
+//        profPicImageView?.contentMode = .ScaleToFill
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -37,13 +43,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidAppear(animated: Bool) {
         user = UserController.sharedInstance.getLoggedInUser()
         print(user?.posts.count)
-        myPosts = (user?.posts)!
+        myPosts = (user?.getPosts())!
         
         profPicImageView = UIImageView(frame: CGRectMake(19, 27, 150, 150))
         profPicImageView!.layer.masksToBounds = true
         profPicImageView!.layer.cornerRadius = 8
         profPicImageView?.contentMode = .ScaleToFill
         profPicImageView!.image = user?.profPic
+
+        
         
         view.addSubview(profPicImageView!)
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchResultsUpdating {
+class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchResultsUpdating, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -78,9 +78,21 @@ class NewsfeedViewController: UIViewController, UITableViewDelegate, UITableView
         filterContentForSearchText(searchController.searchBar.text!)
     }
     
-    func logoTapped() {
+    func logoTapped(sender:UIButton) {
         let pvc = HelpPopUpViewController()
-        pvc.showInView(self.view, animated: true)
+        pvc.modalPresentationStyle = .OverCurrentContext
+        self.navigationController?.modalPresentationStyle = .OverCurrentContext
+//       pvc.modalPresentationStyle = .OverCurrentContext
+//        pvc.preferredContentSize = CGSizeMake(259, 364)
+        
+//        let popoverMenuViewController = pvc.popoverPresentationController
+//        popoverMenuViewController?.permittedArrowDirections = .Any
+//        popoverMenuViewController?.delegate = self
+//        popoverMenuViewController?.sourceView = sender
+//        popoverMenuViewController?.sourceRect = CGRect(x: 59, y: 118, width: 259, height: 364)
+        //presentViewController(pvc, animated: true, completion: nil)
+        self.tabBarController?.presentViewController(pvc, animated: true, completion: nil)
+        //pvc.showInView(self.view, animated: true)
     }
     
     func searchTapped() {

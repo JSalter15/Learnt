@@ -46,6 +46,7 @@
 		328320EF1D19B2E2008A66BC /* NSDateComparisonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328320EE1D19B2E2008A66BC /* NSDateComparisonExtension.swift */; };
 		32A9A9861D1AE33B00441D7C /* HelpPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A9A9841D1AE33B00441D7C /* HelpPopUpViewController.swift */; };
 		32A9A9871D1AE33B00441D7C /* HelpPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A9A9851D1AE33B00441D7C /* HelpPopUpViewController.xib */; };
+		32A9A9891D1BD9E600441D7C /* lightLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A9A9881D1BD9E600441D7C /* lightLogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		328320EE1D19B2E2008A66BC /* NSDateComparisonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComparisonExtension.swift; sourceTree = "<group>"; };
 		32A9A9841D1AE33B00441D7C /* HelpPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPopUpViewController.swift; sourceTree = "<group>"; };
 		32A9A9851D1AE33B00441D7C /* HelpPopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpPopUpViewController.xib; sourceTree = "<group>"; };
+		32A9A9881D1BD9E600441D7C /* lightLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightLogo.png; sourceTree = "<group>"; };
 		D642C28E9B09F34857C89F74 /* Pods_Learnt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Learnt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E581C16BE0E456D5025409 /* Pods-Learnt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learnt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Learnt/Pods-Learnt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +176,7 @@
 		328320821D1854E8008A66BC /* Fonts/Images */ = {
 			isa = PBXGroup;
 			children = (
+				32A9A9881D1BD9E600441D7C /* lightLogo.png */,
 				328320731D181D4F008A66BC /* defaultImage.png */,
 				328320831D1854FF008A66BC /* UBUNTU FONT LICENCE.txt */,
 				328320841D1854FF008A66BC /* Ubuntu-B.ttf */,
@@ -306,6 +309,7 @@
 				328320741D181D4F008A66BC /* defaultImage.png in Resources */,
 				328320961D1854FF008A66BC /* Ubuntu-RI.ttf in Resources */,
 				328320941D1854FF008A66BC /* Ubuntu-MI.ttf in Resources */,
+				32A9A9891D1BD9E600441D7C /* lightLogo.png in Resources */,
 				328320361D18059E008A66BC /* LaunchScreen.storyboard in Resources */,
 				328320901D1854FF008A66BC /* Ubuntu-C.ttf in Resources */,
 				32A9A9871D1AE33B00441D7C /* HelpPopUpViewController.xib in Resources */,

@@ -16,7 +16,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpPopUpViewController" customModule="Learnt" customModuleProvider="target">
             <connections>
                 <outlet property="popUpView" destination="nQ2-53-DFf" id="bq1-Hc-Bzz"/>
-                <outlet property="postButton" destination="Vvz-lZ-GN0" id="hDV-IS-dZM"/>
+                <outlet property="postButton" destination="Vvz-lZ-GN0" id="hp8-Mg-APz"/>
                 <outlet property="textView" destination="vJG-uF-ZKR" id="uv5-y1-fuh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -29,9 +29,6 @@
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQ2-53-DFf">
                     <rect key="frame" x="163" y="118" width="275" height="364"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logoBigWhite" translatesAutoresizingMaskIntoConstraints="NO" id="uTf-eI-5jP">
-                            <rect key="frame" x="36" y="14" width="202" height="73"/>
-                        </imageView>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" text="Press the post button in the top right corner and share something sweet that you learned today!" translatesAutoresizingMaskIntoConstraints="NO" id="vJG-uF-ZKR">
                             <rect key="frame" x="40" y="134" width="195" height="96"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,16 +53,35 @@
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vvz-lZ-GN0">
                             <rect key="frame" x="92.5" y="316" width="89" height="29"/>
-                            <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
                             <state key="normal" title="Get posting!">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="1" green="0.58584480269999994" blue="0.26582594869999998" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="39a-bR-1Hf"/>
+                                <action selector="closeTapped:" destination="-1" eventType="touchUpInside" id="0Ht-dq-vL3"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="lightLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="uTf-eI-5jP">
+                            <rect key="frame" x="36" y="14" width="202" height="73"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="eCr-iy-xt4"/>
+                                <constraint firstAttribute="height" constant="100" id="qf9-t5-B5e"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="eCr-iy-xt4"/>
+                                    <exclude reference="qf9-t5-B5e"/>
+                                </mask>
+                            </variation>
+                            <variation key="widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="eCr-iy-xt4"/>
+                                    <include reference="qf9-t5-B5e"/>
+                                </mask>
+                            </variation>
+                        </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="0.83145032051282053" green="0.4182078467529578" blue="0.0023608859123716479" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.91915064102564104" green="0.51099316203037581" blue="0.11715224154810275" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="Vvz-lZ-GN0" firstAttribute="centerX" secondItem="nQ2-53-DFf" secondAttribute="centerX" id="25N-l0-e7H"/>
                         <constraint firstAttribute="bottom" secondItem="Vvz-lZ-GN0" secondAttribute="bottom" constant="20" id="5ht-Jz-rUl"/>
@@ -76,12 +92,16 @@
                         <constraint firstAttribute="height" constant="364" id="R26-0t-Ofy"/>
                         <constraint firstAttribute="height" constant="364" id="Vbu-ab-OJn"/>
                         <constraint firstAttribute="width" constant="259" id="Z5l-80-D4t"/>
-                        <constraint firstItem="uTf-eI-5jP" firstAttribute="top" secondItem="nQ2-53-DFf" secondAttribute="top" constant="14" id="bFg-SY-Dum"/>
+                        <constraint firstItem="uTf-eI-5jP" firstAttribute="top" secondItem="nQ2-53-DFf" secondAttribute="top" constant="14" id="bFg-SY-Dum">
+                            <variation key="widthClass=compact" constant="29"/>
+                        </constraint>
                         <constraint firstItem="vJG-uF-ZKR" firstAttribute="centerX" secondItem="uTf-eI-5jP" secondAttribute="centerX" id="jva-P8-a5a"/>
                         <constraint firstItem="Vvz-lZ-GN0" firstAttribute="centerX" secondItem="nQ2-53-DFf" secondAttribute="centerX" id="lGL-UB-nlg"/>
                         <constraint firstAttribute="bottom" secondItem="Vvz-lZ-GN0" secondAttribute="bottom" constant="19" id="pw2-jU-cKI"/>
                         <constraint firstItem="uTf-eI-5jP" firstAttribute="centerX" secondItem="nQ2-53-DFf" secondAttribute="centerX" id="sKa-X4-HRZ"/>
-                        <constraint firstItem="vJG-uF-ZKR" firstAttribute="top" secondItem="uTf-eI-5jP" secondAttribute="bottom" constant="47" id="sNJ-05-KMT"/>
+                        <constraint firstItem="vJG-uF-ZKR" firstAttribute="top" secondItem="uTf-eI-5jP" secondAttribute="bottom" constant="47" id="sNJ-05-KMT">
+                            <variation key="widthClass=compact" constant="25"/>
+                        </constraint>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -159,6 +179,6 @@
         </view>
     </objects>
     <resources>
-        <image name="logoBigWhite" width="229" height="73"/>
+        <image name="lightLogo.png" width="720" height="720"/>
     </resources>
 </document>

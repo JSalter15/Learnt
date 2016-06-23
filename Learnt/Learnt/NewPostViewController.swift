@@ -13,6 +13,8 @@ class NewPostViewController: UIViewController, UIGestureRecognizerDelegate, UITe
     @IBOutlet weak var header: UILabel!
     @IBOutlet weak var textView: UITextView!
     
+    var charLength:UIBarButtonItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         header.text = "Today I learned..."
@@ -24,16 +26,41 @@ class NewPostViewController: UIViewController, UIGestureRecognizerDelegate, UITe
         tapRecognizer.delegate = self
         textView.addGestureRecognizer(tapRecognizer)
         
+        charLength =  UIBarButtonItem(title: "140", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+        charLength?.enabled = false
+        
+        let postButton = UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.handlePost(_:)))
+        postButton.tintColor = UIColor.orangeColor()
+        
         let numberToolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
         numberToolbar.barStyle = UIBarStyle.Default
         numberToolbar.items = [
+            charLength!,
             UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(self.handlePost(_:)))]
+            postButton]
         numberToolbar.sizeToFit()
         textView.inputAccessoryView = numberToolbar
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        let lengthLeft = 140 - textView.text.characters.count - 1
+        //var inHashtag:Bool = false
+        
+        print(textView.text.characters.count)
+        
+        let  char = text.cStringUsingEncoding(NSUTF8StringEncoding)!
+        let isBackSpace = strcmp(char, "\\b")
+        
+        if (isBackSpace == -92) {
+            if textView.text == "" {
+                charLength?.title = String(lengthLeft + 1)
+            }
+            else {
+                charLength?.title = String(lengthLeft + 2)
+            }
+            return true
+        }
+        
         if text == "\n" {
             textView.resignFirstResponder()
             if (textView.text == "") {
@@ -47,7 +74,11 @@ class NewPostViewController: UIViewController, UIGestureRecognizerDelegate, UITe
             }
             return false
         }
-        return true
+        
+        if lengthLeft >= 0 {
+            charLength?.title = String(lengthLeft)
+        }
+        return lengthLeft >= 0
     }
     
     func handleTap(sender: UITapGestureRecognizer? = nil) {

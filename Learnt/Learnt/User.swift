@@ -72,6 +72,10 @@ class User: NSObject, NSCoding {
         self.profPic = newProfPic
     }
     
+    func getPosts() -> [Post] {
+        return posts
+    }
+    
     func follow(user:User) {
         self.followingList.append(user)
         user.followerList.append(self)

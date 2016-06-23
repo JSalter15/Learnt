@@ -131,12 +131,12 @@ class UserController {
     func newPostForUser(post:Post) {
         let currentUser = getLoggedInUser()
         
-        if let index = allUsers.indexOf({$0.email == currentUser?.email})
-        {
-            allUsers[index].posts.append(post)
-            
-            // update the array
-            PersistenceManager.saveNSArray(allUsers, fileName: "allUsers")
-        }
+//        if let index = allUsers.indexOf({$0.email == currentUser?.email})
+//        {
+//            allUsers[index].posts.append(post)
+//            
+//            // update the array
+//            PersistenceManager.saveNSArray(allUsers, fileName: "allUsers")
+//        }
     }
 }
